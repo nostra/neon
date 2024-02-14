@@ -7466,23 +7466,26 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="NeonPandora">NeonPandora<a class="anchor-link" href="#NeonPandora">¶</a></h1><p>TODO Translate</p>
-<p>Mål: Å starte med et blankt Kubernetes-cluster på din lokale laptop og:</p>
+<h1 id="NeonPandora">NeonPandora<a class="anchor-link" href="#NeonPandora">¶</a></h1><p>Goal: To start an empty Kubernetes cluster on your local laptop and:
+Mål: Å starte med et blankt Kubernetes-cluster på din lokale laptop og:</p>
 <ul>
-<li>etablere et basis-oppsett</li>
-<li>sette internt docker repository</li>
-<li>sette opp gitrepo internt i Kubernetes-clusteret</li>
-<li>lage en quarkus-basert applikasjon</li>
-<li>bygge applikasjonen i clusteret ved innsjekking</li>
-<li>automatisk deployment</li>
-<li>samle metrikker fra applikasjonen</li>
-<li>alerts</li>
+<li>establish a basis setup</li>
+<li>internally in the Kubernetes cluster<ul>
+<li>set up a docker repository</li>
+<li>set up a git repository</li>
+</ul>
+</li>
+<li>create a Quarkus-based application</li>
+<li>build the application in the cluster at check-in</li>
+<li>continous deployment</li>
+<li>collect metrics from the application</li>
+<li>get alerts</li>
 </ul>
 <p>( Alternative: <a href="https://docs.openfaas.com/">https://docs.openfaas.com/</a> )</p>
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ff92ec7e-711d-4141-b8c3-310d9b847d75">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7524,39 +7527,65 @@ main {
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3d4987261c1fde7f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b2841ebe-aa50-4d3b-845a-771a793ac749">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Tooling---this-gets-presented-today">Tooling - this gets presented today<a class="anchor-link" href="#Tooling---this-gets-presented-today">¶</a></h2><p>Install:</p>
+<h2 id="Tooling---this-gets-used-today">Tooling - this gets used today<a class="anchor-link" href="#Tooling---this-gets-used-today">¶</a></h2><p>Install:</p>
 <ul>
 <li><a href="https://docs.docker.com/install/">https://docs.docker.com/install/</a></li>
 <li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">https://kubernetes.io/docs/tasks/tools/install-kubectl/</a></li>
 <li><a href="https://github.com/kubernetes-sigs/kind">https://github.com/kubernetes-sigs/kind</a></li>
 <li><a href="https://fluxcd.io/docs/installation/#install-the-flux-cli">https://fluxcd.io/docs/installation/#install-the-flux-cli</a></li>
 <li><a href="https://kubectl.docs.kubernetes.io/references/kustomize/">https://kubectl.docs.kubernetes.io/references/kustomize/</a></li>
+<li><a href="https://github.com/mikefarah/yq">https://github.com/mikefarah/yq</a></li>
 </ul>
-<p>Note: On Mac you will need gnu-sed and replace the <code>sed</code> commands with <code>gsed</code>.</p>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=807f9558-335c-4a0e-a936-451b50aa076e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Note: On Mac you will need gnu-sed. To avoid forgetting this, the scripts here use <code>gsed</code>, and on Linux you need to replace this with <code>sed</code> - or create an alias.</p>
+<p>Also note the <code>yq</code> overlay of <code>jq</code></p>
+</div>
+</div>
+</div>
+</div><aside class="notes">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0f15496f-70bd-4fff-8f72-70bd7337135e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>???</p>
 <ul>
 <li>TODO: Add brew install cmd lines</li>
 </ul>
 </div>
 </div>
 </div>
-</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=627fc127488e78b3">
+</div>
+</aside><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e03e7671-7c05-43ee-8e05-e0771476ae6e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">### Which versions to expect after installation</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=eae60b9d-29af-4521-8add-fec46089cf3e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7571,6 +7600,21 @@ kubectl version       <span class="c1"># Should at least give 1.29</span>
 flux version --client <span class="c1"># Should at least give 2.2.2</span>
 kustomize version     <span class="c1"># 5.3.0, most are good</span>
 yq --version          <span class="c1"># 4.40.5</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><aside class="notes">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=74ff42be-b967-4561-b843-d9bff6c3ec75">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span>%%bash
 cilium version        <span class="c1"># 0.15.19 (server version 1.14.4)</span>
 hubble version        <span class="c1"># 0.12.3</span>
 </pre></div>
@@ -7578,14 +7622,15 @@ hubble version        <span class="c1"># 0.12.3</span>
 </div>
 </div>
 </div>
-</div><div class="fragment">
+</div>
+</aside></div><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1ac2b201-3c66-4ffd-a7af-bb40afe5fbf3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Adjust-command-line">Adjust command line<a class="anchor-link" href="#Adjust-command-line">¶</a></h2><div class="highlight"><pre><span></span>git config --global push.default
+<h3 id="You-might-need-to-adjust-the-github-config">You might need to adjust the github config<a class="anchor-link" href="#You-might-need-to-adjust-the-github-config">¶</a></h3><div class="highlight"><pre><span></span>git config --global push.default
 </pre></div>
 </div>
 </div>
@@ -7610,7 +7655,7 @@ the images.</p>
 </div>
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=223594dc6e8bc44c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7622,7 +7667,7 @@ the images.</p>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c51cc8512ad11659">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7699,7 +7744,7 @@ kubectl get pods -A
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>We want to be able to accommodate the following:</p>
+<h2 id="TITLE-(TODO)">TITLE (TODO)<a class="anchor-link" href="#TITLE-(TODO)">¶</a></h2><p>We want to be able to accommodate the following:</p>
 <ul>
 <li>Flux base system</li>
 <li>Cluster setup</li>
@@ -7711,7 +7756,7 @@ kubectl get pods -A
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6dc6ec19a19f5ac7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7772,7 +7817,7 @@ docker network connect <span class="s2">"kind"</span>  kind-registry
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=818a3ffd636fbb7d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7810,39 +7855,6 @@ cat <span class="s">&lt;&lt;EOF | kubectl apply -f -</span>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=67f3c545-2bea-4ca3-ae1b-6c456c2d5c23">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Fire-up-docker-based-kubernetes---alt-2/2">Fire up docker based kubernetes - alt 2/2<a class="anchor-link" href="#Fire-up-docker-based-kubernetes---alt-2/2">¶</a></h2><p>TODO Local registry:</p>
-<ul>
-<li><a href="https://github.com/k3d-io/k3d/blob/main/docs/usage/registries.md#using-a-local-registry">https://github.com/k3d-io/k3d/blob/main/docs/usage/registries.md#using-a-local-registry</a></li>
-<li><a href="https://github.com/k3d-io/k3d/blob/main/docs/usage/registries.md?plain=1#L115">https://github.com/k3d-io/k3d/blob/main/docs/usage/registries.md?plain=1#L115</a></li>
-<li><a href="https://k3d.io/v5.2.0/usage/registries/#using-k3d-managed-registries">https://k3d.io/v5.2.0/usage/registries/#using-k3d-managed-registries</a></li>
-</ul>
-<p>Fire up rancher desktop. We want to use Cilium:
-<a href="https://docs.cilium.io/en/stable/installation/rancher-desktop/">https://docs.cilium.io/en/stable/installation/rancher-desktop/</a></p>
-<p>Do the indicated adjustment in the override file. Then:</p>
-<div class="highlight"><pre><span></span>cilium install --version <span class="m">1</span>.14.5
-cilium status --wait
-</pre></div>
-<p>Enable hubble with ui component</p>
-<div class="highlight"><pre><span></span>cilium hubble <span class="nb">enable</span> --ui
-</pre></div>
-<p>For the CLI to work, you need a port-forward.</p>
-<div class="highlight"><pre><span></span>cilium hubble port-forward
-</pre></div>
-<div class="highlight"><pre><span></span>hubble status
-hubble observe
-</pre></div>
-<div class="highlight"><pre><span></span>cilium hubble ui
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=955f4d1b3b93ee5b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7869,7 +7881,7 @@ ssh-keygen -f ~/.ssh/fluxpres -N <span class="s2">""</span> -C <span class="s2">
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dcb81f655a2e4763">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ccfe7d77-42a0-49f7-a043-a4e2814c3ab6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7877,16 +7889,26 @@ ssh-keygen -f ~/.ssh/fluxpres -N <span class="s2">""</span> -C <span class="s2">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>As the different git repositories represent different access levels, we
 would <strong>use different keys</strong> in a real life scenario.</p>
-<p>Bootstrapping sshd service, and use the key there:
-%%bash
-pushd dockerimage/sshd/
+<p>Bootstrapping sshd service, and use the key there:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d00828bc-e88b-4bca-942f-9dc72b8b1866">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span>%%bash
+<span class="nb">pushd</span> dockerimage/sshd/
 cp ~/.ssh/fluxpres.pub .
 docker build -t neon.local.gd:5001/flux_sshd:v1 .
-echo "NOT DOING # docker build -t flux_sshd:v1 ."
-which nerdctl &gt; /dev/null &amp;&amp; nerdctl --namespace k8s.io build -t flux_sshd:v1 .</p>
-<p>TODO Streamline use according to rancher or kind.</p>
-<p>Kind: Push image to running repository
-(TODO Check: May be that the local.gd strategy here does not pan out)</p>
+<span class="nb">echo</span> <span class="s2">"NOT DOING # docker build -t flux_sshd:v1 ."</span>
+which nerdctl &gt; /dev/null <span class="o">&amp;&amp;</span> nerdctl --namespace k8s.io build -t flux_sshd:v1 .
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -7906,7 +7928,21 @@ docker push neon.local.gd:5001/flux_sshd:v1
 </div>
 </div>
 </div>
+</div><aside class="notes">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7898cb20-a941-47f0-8a55-b26c1fb4f5a0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>TODO Streamline use according to rancher or kind.</p>
+<p>Kind: Push image to running repository
+(TODO Check: May be that the local.gd strategy here does not pan out)</p>
+</div>
+</div>
+</div>
+</div>
+</aside></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3753df614a82861b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7960,7 +7996,7 @@ kubectl create -n management -k base/sshd
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=66008c26-ea07-492f-be1c-40df27b503a1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7971,7 +8007,7 @@ kubectl create -n management -k base/sshd
 </div>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=99543de778c7df54">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8035,7 +8071,7 @@ cp .gitignore <span class="nv">$HOME</span>/scrap/work/neonflux/.gitignore
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ee7327b95081b21a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8060,8 +8096,8 @@ cp .gitignore <span class="nv">$HOME</span>/scrap/work/neonflux/.gitignore
 
 flux install <span class="se">\</span>
      --components<span class="o">=</span>source-controller,kustomize-controller,helm-controller,notification-controller <span class="se">\</span>
-                  --components-extra<span class="o">=</span>image-reflector-controller,image-automation-controller <span class="se">\</span>
-                                     --export &gt; ./flux/system/gotk-components.yaml <span class="o">&amp;&amp;</span>
+     --components-extra<span class="o">=</span>image-reflector-controller,image-automation-controller <span class="se">\</span>
+     --export &gt; ./flux/system/gotk-components.yaml <span class="o">&amp;&amp;</span>
 git add . <span class="p">;</span> git commit -a -m <span class="s2">"Initial commit"</span> <span class="p">;</span> git push
 <span class="nb">popd</span>
 </pre></div>
@@ -8088,7 +8124,7 @@ git add . <span class="p">;</span> git commit -a -m <span class="s2">"Initial co
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d6ab35c9aa9a3361">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8167,7 +8203,7 @@ real life scenario in order to avoid storing plain-text secrets in git. Or place
 </div>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f61a89a609cd0096">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8204,7 +8240,7 @@ git push
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a224a5ce53a4a640">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8242,8 +8278,8 @@ git push
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e47a3062ff76481c">
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=303331d7-b774-4973-832e-d9e1e27cd14f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8273,7 +8309,7 @@ git push
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6f7cac32-8c5f-49a4-8fc0-8af8e9917fea">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8292,7 +8328,7 @@ git push
 </div>
 </div>
 </div>
-</div>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f4776d98e1e3481c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8359,7 +8395,7 @@ curl http://localhost:8080/hello
 </div>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bc55e587b62f0778">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8389,7 +8425,7 @@ git push
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=94b9e545ff505813">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8475,7 +8511,7 @@ kubectl --namespace tekton-pipelines port-forward svc/tekton-dashboard <span cla
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a4a81ab38a93de1f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8560,7 +8596,7 @@ kubectl run curl -i --rm --restart<span class="o">=</span>Never --image gcr.io/c
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5863c41e1175eaa5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8664,7 +8700,7 @@ docker pull localhost:5001/scienta/neon:1.0.0-SNAPSHOT
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dd3c47bc-734a-4eef-8f1f-aebe7209428d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8676,7 +8712,7 @@ docker pull localhost:5001/scienta/neon:1.0.0-SNAPSHOT
 </div>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e244116d7432ff6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8707,7 +8743,7 @@ kubectl create secret docker-registry image-pull-secret <span class="se">\</span
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=07ba9c8a-fbb1-441b-a72d-1f9d81041b7c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8722,7 +8758,7 @@ curl -i --user testuser:testpassword https://registry.management.svc.cluster.loc
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3a46cfdf7b98b96a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8760,7 +8796,7 @@ git push
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bc56ceee8fa2affb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
