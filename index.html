@@ -7466,8 +7466,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="NeonPandora">NeonPandora<a class="anchor-link" href="#NeonPandora">¶</a></h1><p>Goal: To start an empty Kubernetes cluster on your local laptop and:
-Mål: Å starte med et blankt Kubernetes-cluster på din lokale laptop og:</p>
+<h1 id="NeonPandora">NeonPandora<a class="anchor-link" href="#NeonPandora">¶</a></h1><p>Goal: To start an empty Kubernetes cluster on your local laptop and:</p>
 <ul>
 <li>establish a basis setup</li>
 <li>internally in the Kubernetes cluster<ul>
@@ -7493,6 +7492,7 @@ Mål: Å starte med et blankt Kubernetes-cluster på din lokale laptop og:</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Tech-recap">Tech recap<a class="anchor-link" href="#Tech-recap">¶</a></h2><p>TODO write - There is text below</p>
+<p>When looking at the slides the <code>%%bash</code>-sections might be cut in the view. However, if you copy the contents they work fine.</p>
 </div>
 </div>
 </div>
@@ -7571,17 +7571,14 @@ Mål: Å starte med et blankt Kubernetes-cluster på din lokale laptop og:</p>
 </div>
 </div>
 </div>
-</aside><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e03e7671-7c05-43ee-8e05-e0771476ae6e">
+</aside></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a09f3e42-aaf4-4ede-8122-846098bce36c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">### Which versions to expect after installation</span>
-</pre></div>
-</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Which-versions-to-expect-after-installation">Which versions to expect after installation<a class="anchor-link" href="#Which-versions-to-expect-after-installation">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7623,7 +7620,7 @@ hubble version        <span class="c1"># 0.12.3</span>
 </div>
 </div>
 </div>
-</aside></div><div class="fragment">
+</aside><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1ac2b201-3c66-4ffd-a7af-bb40afe5fbf3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7636,19 +7633,42 @@ hubble version        <span class="c1"># 0.12.3</span>
 </div>
 </div>
 </div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1b2b9f41cefa6354">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2ba43023-1e87-4f75-a1da-ad2455d85835">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Fire-up-docker-based-kubernetes---alt-1/2">Fire up docker based kubernetes - alt 1/2<a class="anchor-link" href="#Fire-up-docker-based-kubernetes---alt-1/2">¶</a></h1><p>Using a local docker registry is a bit tricky. Following these instructions
+<h1 id="Kind:-Docker-based-kubernetes">Kind: Docker based kubernetes<a class="anchor-link" href="#Kind:-Docker-based-kubernetes">¶</a></h1><p>Using a local docker registry is a bit tricky. Following these instructions
 for Kind: <a href="https://kind.sigs.k8s.io/docs/user/local-registry/">https://kind.sigs.k8s.io/docs/user/local-registry/</a></p>
-<pre><code>docker run \
-       -d --restart=always -p "127.0.0.1:5001:5000" \
-       --network bridge --name "kind-registry" \
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f1c186e0-3c04-4231-b2c6-8451d09cb663">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span>%%bash
+docker run <span class="se">\</span>
+       -d --restart<span class="o">=</span>always -p <span class="s2">"127.0.0.1:5001:5000"</span> <span class="se">\</span>
+       --network bridge --name <span class="s2">"kind-registry"</span> <span class="se">\</span>
     registry:2
-</code></pre>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e4e614ca-8724-4745-b58d-235d43c6e8ba">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>This will start the registry as a separate docker container.</p>
 <p><strong>Notice</strong> that it is started without a backing volume, so a deletion of the docker image will remove
 the images.</p>
@@ -7674,7 +7694,7 @@ the images.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Fire-up-docker-based-kubernetes---alt-1/2">Fire up docker based kubernetes - alt 1/2<a class="anchor-link" href="#Fire-up-docker-based-kubernetes---alt-1/2">¶</a></h2><p>Create the cluster</p>
+<h2 id="Create-the-Kind-cluster">Create the Kind cluster<a class="anchor-link" href="#Create-the-Kind-cluster">¶</a></h2>
 </div>
 </div>
 </div>
@@ -7687,7 +7707,6 @@ the images.</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
-
 kind create cluster --config kind-api-cluster.yaml --name<span class="o">=</span>neonpandora
 </pre></div>
 </div>
@@ -7714,7 +7733,6 @@ kind create cluster --config kind-api-cluster.yaml --name<span class="o">=</span
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
-
 kubectl config get-contexts
 </pre></div>
 </div>
@@ -7730,29 +7748,9 @@ kubectl config get-contexts
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
-
 kubectl get pods -A
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f2f22d00-a843-4815-91f7-b94fc86d5664">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="TITLE-(TODO)">TITLE (TODO)<a class="anchor-link" href="#TITLE-(TODO)">¶</a></h2><p>We want to be able to accommodate the following:</p>
-<ul>
-<li>Flux base system</li>
-<li>Cluster setup</li>
-<li>Creation of tenant within the cluster</li>
-</ul>
-<p>Changing between contexts:</p>
-<pre><code>kubectl config use-context kind-neonpandora
-</code></pre>
 </div>
 </div>
 </div>
@@ -7763,8 +7761,7 @@ kubectl get pods -A
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Fire-up-docker-based-kubernetes---alt-1/2">Fire up docker based kubernetes - alt 1/2<a class="anchor-link" href="#Fire-up-docker-based-kubernetes---alt-1/2">¶</a></h2><pre><code> Add registry config to the nodes:
- </code></pre>
+<h2 id="Connect-up-the-local-Kind-regisitry">Connect up the local Kind regisitry<a class="anchor-link" href="#Connect-up-the-local-Kind-regisitry">¶</a></h2><p>Add registry config to the nodes:</p>
 </div>
 </div>
 </div>
@@ -7777,7 +7774,6 @@ kubectl get pods -A
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
-
 <span class="nv">REGISTRY_DIR</span><span class="o">=</span><span class="s2">"/etc/containerd/certs.d/localhost:5001"</span>
 <span class="k">for</span> node <span class="k">in</span> <span class="k">$(</span>kind get nodes --name<span class="o">=</span>neonpandora<span class="k">)</span><span class="p">;</span> <span class="k">do</span>
 docker <span class="nb">exec</span> <span class="s2">"</span><span class="si">${</span><span class="nv">node</span><span class="si">}</span><span class="s2">"</span> mkdir -p <span class="s2">"</span><span class="si">${</span><span class="nv">REGISTRY_DIR</span><span class="si">}</span><span class="s2">"</span>
@@ -7810,7 +7806,6 @@ cat <span class="s">&lt;&lt;EOF | docker exec -i "${node}" cp /dev/stdin "${REGI
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
-
 docker network connect <span class="s2">"kind"</span>  kind-registry
 </pre></div>
 </div>
@@ -7824,7 +7819,7 @@ docker network connect <span class="s2">"kind"</span>  kind-registry
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Fire-up-docker-based-kubernetes---alt-1/2">Fire up docker based kubernetes - alt 1/2<a class="anchor-link" href="#Fire-up-docker-based-kubernetes---alt-1/2">¶</a></h2><p><a href="https://github.com/kubernetes/enhancements/tree/master/keps/sig-cluster-lifecycle/generic/1755-communicating-a-local-registry">Documentation</a>:</p>
+<h2 id="Kind-registry-config">Kind registry config<a class="anchor-link" href="#Kind-registry-config">¶</a></h2><p>Make Kubernetes inside the Kind cluster use registry from the docker container</p>
 </div>
 </div>
 </div>
@@ -7837,7 +7832,6 @@ docker network connect <span class="s2">"kind"</span>  kind-registry
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
-
 cat <span class="s">&lt;&lt;EOF | kubectl apply -f -</span>
 <span class="s">apiVersion: v1</span>
 <span class="s">kind: ConfigMap</span>
@@ -7861,7 +7855,7 @@ cat <span class="s">&lt;&lt;EOF | kubectl apply -f -</span>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Create-ssh-keys-for-git-1/2">Create ssh keys for git 1/2<a class="anchor-link" href="#Create-ssh-keys-for-git-1/2">¶</a></h1>
+<h1 id="Ssh-server-in-Kind">Ssh server in Kind<a class="anchor-link" href="#Ssh-server-in-Kind">¶</a></h1><p>Create ssh keys for git</p>
 </div>
 </div>
 </div>
@@ -7921,7 +7915,6 @@ which nerdctl &gt; /dev/null <span class="o">&amp;&amp;</span> nerdctl --namespa
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
-
 docker push neon.local.gd:5001/flux_sshd:v1
 </pre></div>
 </div>
@@ -7950,6 +7943,7 @@ docker push neon.local.gd:5001/flux_sshd:v1
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>Legacy:</strong> If using kind, load the image, first:</p>
+<p>TODO Check information, I think it is outdated</p>
 </div>
 </div>
 </div>
@@ -7962,7 +7956,6 @@ docker push neon.local.gd:5001/flux_sshd:v1
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
-
 kind --name neonpandora load docker-image flux_sshd:v1
 </pre></div>
 </div>
@@ -7996,7 +7989,7 @@ kubectl create -n management -k base/sshd
 </div>
 </div>
 </div>
-</div>
+</div><aside class="notes">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=66008c26-ea07-492f-be1c-40df27b503a1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8007,14 +8000,15 @@ kubectl create -n management -k base/sshd
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div>
+</aside></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=99543de778c7df54">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="...--and-enable-GitOps-with-kustomize-:-System">...  and enable GitOps with kustomize : System<a class="anchor-link" href="#...--and-enable-GitOps-with-kustomize-:-System">¶</a></h1>
+<h1 id="GitOps-with-Kustomize">GitOps with Kustomize<a class="anchor-link" href="#GitOps-with-Kustomize">¶</a></h1><p>First create repository on the ssh-server inside kind:</p>
 </div>
 </div>
 </div>
@@ -8027,7 +8021,6 @@ kubectl create -n management -k base/sshd
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
-
 ssh -i ~/.ssh/fluxpres -p <span class="m">31022</span> fluxpres@neon.local.gd <span class="se">\</span>
     git init --bare git/neonflux.git &lt; /dev/null
 </pre></div>
@@ -8036,7 +8029,7 @@ ssh -i ~/.ssh/fluxpres -p <span class="m">31022</span> fluxpres@neon.local.gd <s
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e1f9132429d0dab9">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=755aa403-bacf-4fa5-bec8-3551d01714e4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8048,7 +8041,17 @@ Host localhost
 User fluxpres
 IdentityFile ~/.ssh/fluxpres
 </code></pre>
-<p>Clone and install flux system</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e0588f93-f573-4f34-a7c2-b852c75783d9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Clone-and-install-flux-system">Clone and install flux system<a class="anchor-link" href="#Clone-and-install-flux-system">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8062,7 +8065,9 @@ IdentityFile ~/.ssh/fluxpres
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
 mkdir -p ~/scrap/work
-git clone ssh://fluxpres@neon.local.gd:31022/home/fluxpres/git/neonflux.git ~/scrap/work/neonflux
+git clone <span class="se">\</span>
+   ssh://fluxpres@neon.local.gd:31022/home/fluxpres/git/neonflux.git <span class="se">\</span>
+   ~/scrap/work/neonflux
 cp -r flux <span class="nv">$HOME</span>/scrap/work/neonflux/.
 cp -r base <span class="nv">$HOME</span>/scrap/work/neonflux/.
 cp .gitignore <span class="nv">$HOME</span>/scrap/work/neonflux/.gitignore
@@ -8078,7 +8083,7 @@ cp .gitignore <span class="nv">$HOME</span>/scrap/work/neonflux/.gitignore
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="...--and-enable-GitOps-with-kustomize-:-Flux">...  and enable GitOps with kustomize : Flux<a class="anchor-link" href="#...--and-enable-GitOps-with-kustomize-:-Flux">¶</a></h2>
+<h2 id="...--and-enable-Flux">...  and enable Flux<a class="anchor-link" href="#...--and-enable-Flux">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8105,7 +8110,7 @@ git add . <span class="p">;</span> git commit -a -m <span class="s2">"Initial co
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=677bd89c-e352-46d4-97b4-d40b9a20d775">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8124,14 +8129,15 @@ git add . <span class="p">;</span> git commit -a -m <span class="s2">"Initial co
 </div>
 </div>
 </div>
-</div></section><section>
+</div>
+</aside></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d6ab35c9aa9a3361">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="...--and-enable-GitOps-with-kustomize:-Secret">...  and enable GitOps with kustomize: Secret<a class="anchor-link" href="#...--and-enable-GitOps-with-kustomize:-Secret">¶</a></h2><p>Add ssh key as secret to flux system.</p>
+<h2 id="...--Flux-needs-secret-to-read-git">...  Flux needs secret to read git<a class="anchor-link" href="#...--Flux-needs-secret-to-read-git">¶</a></h2><p>Add ssh key as secret to flux system. Notice that the <code>known_hosts</code> file gets adjusted. In a later example, we just skip the host key verification.</p>
 </div>
 </div>
 </div>
@@ -8163,6 +8169,17 @@ git commit -a -m <span class="s2">"Add secret and sync configurations"</span> <s
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=75c2a8b3-217a-4b7c-b064-0727876e0eb0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Notice that the secret would be <strong>encrypted with Mozilla SOPS or Sealed Secrets</strong> in a real life scenario in order to avoid storing plain-text secrets in git. Or placed in a vault.</p>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b6b4cd523eff462e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8188,18 +8205,18 @@ kubectl create -k ~/scrap/work/neonflux/flux/system
 </div>
 </div>
 </div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=24fef03d-bb92-4e65-b123-ec4f46f66342">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f97da45e-201c-4758-ab9d-b10d58194588">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Notice that the secret would be <strong>encrypted with Mozilla SOPS or Sealed Secrets</strong> in a
-real life scenario in order to avoid storing plain-text secrets in git. Or placed in a vault.</p>
-<p>???</p>
-<div class="highlight"><pre><span></span>kubectl -n flux-system get pods --watch
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span>%%bash
+kubectl -n flux-system get pods --watch
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -8285,7 +8302,7 @@ git push
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Add application properties</p>
+<h3 id="Add-application-properties">Add application properties<a class="anchor-link" href="#Add-application-properties">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8432,7 +8449,7 @@ git push
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Build-with-tekton...-:-Elements">Build with tekton... : Elements<a class="anchor-link" href="#Build-with-tekton...-:-Elements">¶</a></h2><table>
+<h3 id="Build-with-tekton...-:-Elements">Build with tekton... : Elements<a class="anchor-link" href="#Build-with-tekton...-:-Elements">¶</a></h3><table>
 <thead>
 <tr>
 <th>element</th>
@@ -8496,7 +8513,7 @@ kubectl --namespace tekton-pipelines port-forward svc/tekton-dashboard <span cla
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=750663c9-0370-4107-848f-383a43c14ea9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8511,14 +8528,15 @@ kubectl --namespace tekton-pipelines port-forward svc/tekton-dashboard <span cla
 </div>
 </div>
 </div>
-</div></section><section>
+</div>
+</aside></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a4a81ab38a93de1f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Build-with-tekton...-webhook">Build with tekton... webhook<a class="anchor-link" href="#Build-with-tekton...-webhook">¶</a></h2><p>Creating a <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">git webhook</a>.</p>
+<h3 id="Build-with-tekton...-webhook">Build with tekton... webhook<a class="anchor-link" href="#Build-with-tekton...-webhook">¶</a></h3><p>Creating a <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">git webhook</a>.</p>
 <p>Copy the script to the server side hook directory:</p>
 </div>
 </div>
@@ -8603,7 +8621,7 @@ kubectl run curl -i --rm --restart<span class="o">=</span>Never --image gcr.io/c
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Build-with-tekton...-:-status">Build with tekton... : status<a class="anchor-link" href="#Build-with-tekton...-:-status">¶</a></h2><ul>
+<h3 id="Build-with-tekton...-:-status">Build with tekton... : status<a class="anchor-link" href="#Build-with-tekton...-:-status">¶</a></h3><ul>
 <li><a href="https://hub.tekton.dev/tekton/task/maven">https://hub.tekton.dev/tekton/task/maven</a></li>
 </ul>
 </div>
@@ -8618,7 +8636,6 @@ kubectl run curl -i --rm --restart<span class="o">=</span>Never --image gcr.io/c
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
-
 kubectl config set-context --current --namespace<span class="o">=</span>neon-builder
 kubectl get pods
 </pre></div>
@@ -8686,7 +8703,7 @@ docker pull localhost:5001/scienta/neon:1.0.0-SNAPSHOT
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=21d5f808-e421-411c-9105-4ad99f7333c7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8695,7 +8712,8 @@ docker pull localhost:5001/scienta/neon:1.0.0-SNAPSHOT
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Build-with-tekton...-:--feeling">Build with tekton... :  feeling<a class="anchor-link" href="#Build-with-tekton...-:--feeling">¶</a></h2><ul>
 <li>Tekton is fairly verbose</li>
-<li>As build is done be Kubernetes objects, pipeline runs remains as cruft</li>
+<li>As build is done by Kubernetes objects, pipeline runs remains as cruft as you need / want to see logs</li>
+<li>Github actions is easier to grasp, and you can still build inside the cluster</li>
 </ul>
 </div>
 </div>
@@ -8713,52 +8731,6 @@ docker pull localhost:5001/scienta/neon:1.0.0-SNAPSHOT
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e244116d7432ff6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Run-application...-:-secret">Run application... : secret<a class="anchor-link" href="#Run-application...-:-secret">¶</a></h1><p>(Not necessary when using Kind.)</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b270c457-65a2-43e0-b55b-ee64f055a4fb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span>%%bash
-kubectl create secret docker-registry image-pull-secret <span class="se">\</span>
-                         -n backend <span class="se">\</span>
-                         --docker-server<span class="o">=</span>registry.management.svc.cluster.local:5000 <span class="se">\</span>
-                         --docker-username<span class="o">=</span>testuser <span class="se">\</span>
-                         --docker-password<span class="o">=</span>testpassword <span class="se">\</span>
-                         --docker-email<span class="o">=</span>nobody@dynamicus.org
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=07ba9c8a-fbb1-441b-a72d-1f9d81041b7c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>???</p>
-<pre><code>curl -i --user testuser:testpassword https://registry.management.svc.cluster.local:5000/v2/_catalog
-curl -i --user testuser:testpassword https://registry.management.svc.cluster.local:5000/v2/scienta/neon/tags/list
-curl -i --user testuser:testpassword https://registry.management.svc.cluster.local:5000/v2/scienta/neon/manifests/1.0.0-SNAPSHOT
-</code></pre>
-</div>
-</div>
-</div>
-</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3a46cfdf7b98b96a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
