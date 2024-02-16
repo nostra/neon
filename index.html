@@ -7469,18 +7469,14 @@ main {
 <h1 id="NeonPandora">NeonPandora<a class="anchor-link" href="#NeonPandora">¶</a></h1><p>Goal: To start an empty Kubernetes cluster on your local laptop and:</p>
 <ul>
 <li>establish a basis setup</li>
-<li>internally in the Kubernetes cluster<ul>
-<li>set up a docker repository</li>
-<li>set up a git repository</li>
-</ul>
-</li>
+<li>set up internal docker repository</li>
+<li>ssh server to use as internal git repository</li>
 <li>create a Quarkus-based application</li>
 <li>build the application in the cluster at check-in</li>
 <li>continous deployment</li>
 <li>collect metrics from the application</li>
 <li>get alerts</li>
 </ul>
-<p>( Alternative: <a href="https://docs.openfaas.com/">https://docs.openfaas.com/</a> )</p>
 </div>
 </div>
 </div>
@@ -7491,7 +7487,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Tech-recap">Tech recap<a class="anchor-link" href="#Tech-recap">¶</a></h2><p>TODO write - There is text below</p>
+<h2 id="About-these-slides">About these slides<a class="anchor-link" href="#About-these-slides">¶</a></h2><p>These slides are written with <a href="https://jupyter.org/">Jupyter Notebook</a> for ease of integrating with bash command line.</p>
 <p>When looking at the slides the <code>%%bash</code>-sections might be cut in the view. However, if you copy the contents they work fine.</p>
 </div>
 </div>
@@ -7501,11 +7497,11 @@ main {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">notebook</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Notebook version:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"These slides were made with notebook version:"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">notebook</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7519,8 +7515,8 @@ main {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Notebook version:
-7.0.8
+<pre>These slides were made with notebook version:
+7.1.0
 </pre>
 </div>
 </div>
@@ -7639,7 +7635,7 @@ hubble version        <span class="c1"># 0.12.3</span>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Kind:-Docker-based-kubernetes">Kind: Docker based kubernetes<a class="anchor-link" href="#Kind:-Docker-based-kubernetes">¶</a></h1><p>Using a local docker registry is a bit tricky. Following these instructions
+<h2 id="Docker-based-Kubernetes-with-Kind">Docker based Kubernetes with Kind<a class="anchor-link" href="#Docker-based-Kubernetes-with-Kind">¶</a></h2><p>Using a local docker registry is a bit tricky. Following these instructions
 for Kind: <a href="https://kind.sigs.k8s.io/docs/user/local-registry/">https://kind.sigs.k8s.io/docs/user/local-registry/</a></p>
 </div>
 </div>
@@ -7694,7 +7690,7 @@ the images.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Create-the-Kind-cluster">Create the Kind cluster<a class="anchor-link" href="#Create-the-Kind-cluster">¶</a></h2>
+<h3 id="Create-the-Kind-cluster">Create the Kind cluster<a class="anchor-link" href="#Create-the-Kind-cluster">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7761,7 +7757,7 @@ kubectl get pods -A
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Connect-up-the-local-Kind-regisitry">Connect up the local Kind regisitry<a class="anchor-link" href="#Connect-up-the-local-Kind-regisitry">¶</a></h2><p>Add registry config to the nodes:</p>
+<h3 id="Connect-up-the-local-Kind-regisitry">Connect up the local Kind regisitry<a class="anchor-link" href="#Connect-up-the-local-Kind-regisitry">¶</a></h3><p>Add registry config to the nodes:</p>
 </div>
 </div>
 </div>
@@ -7819,7 +7815,7 @@ docker network connect <span class="s2">"kind"</span>  kind-registry
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Kind-registry-config">Kind registry config<a class="anchor-link" href="#Kind-registry-config">¶</a></h2><p>Make Kubernetes inside the Kind cluster use registry from the docker container</p>
+<h3 id="Kind-registry-config">Kind registry config<a class="anchor-link" href="#Kind-registry-config">¶</a></h3><p>Make Kubernetes inside the Kind cluster use registry from the docker container</p>
 </div>
 </div>
 </div>
@@ -7855,7 +7851,7 @@ cat <span class="s">&lt;&lt;EOF | kubectl apply -f -</span>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Ssh-server-in-Kind">Ssh server in Kind<a class="anchor-link" href="#Ssh-server-in-Kind">¶</a></h1><p>Create ssh keys for git</p>
+<h2 id="Ssh-server-in-Kind">Ssh server in Kind<a class="anchor-link" href="#Ssh-server-in-Kind">¶</a></h2><p>Create ssh keys for git</p>
 </div>
 </div>
 </div>
@@ -8008,7 +8004,7 @@ kubectl create -n management -k base/sshd
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="GitOps-with-Kustomize">GitOps with Kustomize<a class="anchor-link" href="#GitOps-with-Kustomize">¶</a></h1><p>First create repository on the ssh-server inside kind:</p>
+<h2 id="GitOps-with-Kustomize">GitOps with Kustomize<a class="anchor-link" href="#GitOps-with-Kustomize">¶</a></h2><p>First create repository on the ssh-server inside kind:</p>
 </div>
 </div>
 </div>
@@ -8137,7 +8133,7 @@ git add . <span class="p">;</span> git commit -a -m <span class="s2">"Initial co
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="...--Flux-needs-secret-to-read-git">...  Flux needs secret to read git<a class="anchor-link" href="#...--Flux-needs-secret-to-read-git">¶</a></h2><p>Add ssh key as secret to flux system. Notice that the <code>known_hosts</code> file gets adjusted. In a later example, we just skip the host key verification.</p>
+<h3 id="...--Flux-needs-secret-to-read-git">...  Flux needs secret to read git<a class="anchor-link" href="#...--Flux-needs-secret-to-read-git">¶</a></h3><p>Add ssh key as secret to flux system. Notice that the <code>known_hosts</code> file gets adjusted. In a later example, we just skip the host key verification.</p>
 </div>
 </div>
 </div>
@@ -8227,7 +8223,7 @@ kubectl -n flux-system get pods --watch
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Set-up-a-Quarkus-project">Set up a Quarkus project<a class="anchor-link" href="#Set-up-a-Quarkus-project">¶</a></h1><p>Create a repository for code:</p>
+<h2 id="Set-up-a-Quarkus-project">Set up a Quarkus project<a class="anchor-link" href="#Set-up-a-Quarkus-project">¶</a></h2><p>Create a repository for code:</p>
 </div>
 </div>
 </div>
@@ -8242,8 +8238,6 @@ kubectl -n flux-system get pods --watch
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
 ssh -i ~/.ssh/fluxpres -p <span class="m">31022</span> fluxpres@neon.local.gd <span class="se">\</span>
     git init --bare git/neoncode.git
-
-Echo <span class="s2">"Initial commit"</span>
 
 git clone ssh://fluxpres@neon.local.gd:31022/home/fluxpres/git/neoncode.git <span class="nv">$HOME</span>/scrap/work/neoncode
 <span class="nb">pushd</span>  <span class="nv">$HOME</span>/scrap/work/neoncode/
@@ -8264,7 +8258,7 @@ git push
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Set-up-a-Quarkus-project:-Quarkus">Set up a Quarkus project: Quarkus<a class="anchor-link" href="#Set-up-a-Quarkus-project:-Quarkus">¶</a></h2><p>Initialize Quarkus project</p>
+<h3 id="Set-up-a-Quarkus-project">Set up a Quarkus project<a class="anchor-link" href="#Set-up-a-Quarkus-project">¶</a></h3><p>Initialize Quarkus project</p>
 </div>
 </div>
 </div>
@@ -8352,7 +8346,7 @@ git push
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Set-up-a-Quarkus-project-:-code">Set up a Quarkus project : code<a class="anchor-link" href="#Set-up-a-Quarkus-project-:-code">¶</a></h2><p>Build and run it locally:</p>
+<h3 id="Run-the-Quarkus-project">Run the Quarkus project<a class="anchor-link" href="#Run-the-Quarkus-project">¶</a></h3><p>Build and run it locally:</p>
 </div>
 </div>
 </div>
@@ -8419,7 +8413,7 @@ curl http://localhost:8080/hello
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Build-with-tekton...-:-key">Build with tekton... : key<a class="anchor-link" href="#Build-with-tekton...-:-key">¶</a></h1><p>The Tekton pipeline needs to be able to pull code from the repository too:</p>
+<h2 id="Build-with-tekton...-:-key">Build with tekton... : key<a class="anchor-link" href="#Build-with-tekton...-:-key">¶</a></h2><p>The Tekton pipeline needs to be able to pull code from the repository too:</p>
 </div>
 </div>
 </div>
@@ -8496,7 +8490,8 @@ types of build pipelines in the same project.</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
-kubectl --namespace tekton-pipelines port-forward svc/tekton-dashboard <span class="m">9097</span>:9097
+screen -m -S tekton <span class="se">\</span>
+   kubectl --namespace tekton-pipelines port-forward svc/tekton-dashboard <span class="m">9097</span>:9097
 </pre></div>
 </div>
 </div>
@@ -8710,7 +8705,7 @@ docker pull localhost:5001/scienta/neon:1.0.0-SNAPSHOT
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Build-with-tekton...-:--feeling">Build with tekton... :  feeling<a class="anchor-link" href="#Build-with-tekton...-:--feeling">¶</a></h2><ul>
+<h3 id="Build-with-tekton...-:--feeling">Build with tekton... :  feeling<a class="anchor-link" href="#Build-with-tekton...-:--feeling">¶</a></h3><ul>
 <li>Tekton is fairly verbose</li>
 <li>As build is done by Kubernetes objects, pipeline runs remains as cruft as you need / want to see logs</li>
 <li>Github actions is easier to grasp, and you can still build inside the cluster</li>
@@ -8725,7 +8720,7 @@ docker pull localhost:5001/scienta/neon:1.0.0-SNAPSHOT
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Build-with-tekton...-:-SLSA">Build with tekton... : SLSA<a class="anchor-link" href="#Build-with-tekton...-:-SLSA">¶</a></h2><p>Supply chain security:
+<h3 id="Build-with-tekton...-:-SLSA">Build with tekton... : SLSA<a class="anchor-link" href="#Build-with-tekton...-:-SLSA">¶</a></h3><p>Supply chain security:
 <a href="https://tekton.dev/docs/getting-started/supply-chain-security/">https://tekton.dev/docs/getting-started/supply-chain-security/</a></p>
 </div>
 </div>
@@ -8775,7 +8770,7 @@ git push
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Run-application...-:--base">Run application... :  base<a class="anchor-link" href="#Run-application...-:--base">¶</a></h2>
+<h3 id="Run-application...-:--base">Run application... :  base<a class="anchor-link" href="#Run-application...-:--base">¶</a></h3>
 </div>
 </div>
 </div>
