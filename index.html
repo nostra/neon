@@ -7492,32 +7492,18 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b301cfd2139f20cf">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b301cfd2139f20cf">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">notebook</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"These slides were made with notebook version:"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">notebook</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>These slides were made with notebook version:
-7.1.0
-</pre>
 </div>
 </div>
 </div>
@@ -7640,12 +7626,12 @@ for Kind: <a href="https://kind.sigs.k8s.io/docs/user/local-registry/">https://k
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f1c186e0-3c04-4231-b2c6-8451d09cb663">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f1c186e0-3c04-4231-b2c6-8451d09cb663">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
@@ -7654,19 +7640,6 @@ docker run <span class="se">\</span>
        --network bridge --name <span class="s2">"kind-registry"</span> <span class="se">\</span>
     registry:2
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>1626aa7d048b1fa4d1db69f3c390c8d91601156e2f829c7f25e357b84d16debe
-</pre>
 </div>
 </div>
 </div>
@@ -7707,50 +7680,17 @@ the images.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6cd2f4182504d3b">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6cd2f4182504d3b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
 kind create cluster --config kind-api-cluster.yaml --name<span class="o">=</span>neonpandora
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Creating cluster "neonpandora" ...
- • Ensuring node image (kindest/node:v1.29.2) 🖼  ...
- ✓ Ensuring node image (kindest/node:v1.29.2) 🖼
- • Preparing nodes 📦 📦   ...
- ✓ Preparing nodes 📦 📦 
- • Writing configuration 📜  ...
- ✓ Writing configuration 📜
- • Starting control-plane 🕹️  ...
- ✓ Starting control-plane 🕹️
- • Installing CNI 🔌  ...
- ✓ Installing CNI 🔌
- • Installing StorageClass 💾  ...
- ✓ Installing StorageClass 💾
- • Joining worker nodes 🚜  ...
- ✓ Joining worker nodes 🚜
-Set kubectl context to "kind-neonpandora"
-You can now use your cluster with:
-
-kubectl cluster-info --context kind-neonpandora
-
-Thanks for using kind! 😊
-</pre>
 </div>
 </div>
 </div>
@@ -7766,33 +7706,17 @@ Thanks for using kind! 😊
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=73a189cd13b17d06">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=73a189cd13b17d06">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
 kubectl config get-contexts
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CURRENT   NAME               CLUSTER            AUTHINFO           NAMESPACE
-          kind-kind          kind-kind          kind-kind          kube-system
-*         kind-neonpandora   kind-neonpandora   kind-neonpandora   
-          rancher-desktop    rancher-desktop    rancher-desktop    backend
-</pre>
 </div>
 </div>
 </div>
@@ -7828,7 +7752,7 @@ kubectl get pods -A
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
@@ -7881,12 +7805,12 @@ docker network connect <span class="s2">"kind"</span>  kind-registry
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8e47da0774f3e1ef">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8e47da0774f3e1ef">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
@@ -7902,19 +7826,6 @@ cat <span class="s">&lt;&lt;EOF | kubectl apply -f -</span>
 <span class="s">    help: "https://kind.sigs.k8s.io/docs/user/local-registry/"</span>
 <span class="s">EOF</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>configmap/local-registry-hosting created
-</pre>
 </div>
 </div>
 </div>
@@ -7976,44 +7887,17 @@ which nerdctl &gt; /dev/null <span class="o">&amp;&amp;</span> nerdctl --namespa
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3ae9d9c984ed6e9f">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3ae9d9c984ed6e9f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
 docker push neon.local.gd:5001/flux_sshd:v1
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>The push refers to repository [neon.local.gd:5001/flux_sshd]
-c502cf5c8db1: Preparing
-1567da67fd6e: Preparing
-052fc799c836: Preparing
-e5493947169a: Preparing
-1ceccc1395d1: Preparing
-3ce819cc4970: Preparing
-3ce819cc4970: Waiting
-e5493947169a: Pushed
-1567da67fd6e: Pushed
-052fc799c836: Pushed
-c502cf5c8db1: Pushed
-3ce819cc4970: Pushed
-1ceccc1395d1: Pushed
-v1: digest: sha256:d171fff681199b387b98be957b57fc2e9944bb549b142a66e1e3d56fa20ad38c size: 1570
-</pre>
 </div>
 </div>
 </div>
@@ -8073,34 +7957,18 @@ kind --name neonpandora load docker-image flux_sshd:v1
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4c486bc249b0bbd7">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4c486bc249b0bbd7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
 kubectl create ns management
 kubectl create -n management -k base/sshd
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>namespace/management created
-service/sshd created
-persistentvolumeclaim/sshd-pvc created
-deployment.apps/sshd created
-</pre>
 </div>
 </div>
 </div>
@@ -8128,48 +7996,18 @@ deployment.apps/sshd created
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=714e31b1ace7aa01">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=714e31b1ace7aa01">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
 ssh -i ~/.ssh/fluxpres -p <span class="m">31022</span> fluxpres@neon.local.gd <span class="se">\</span>
     git init --bare git/neonflux.git &lt; /dev/null
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Warning: Permanently added '[neon.local.gd]:31022' (ED25519) to the list of known hosts.
-hint: Using 'master' as the name for the initial branch. This default branch name
-hint: is subject to change. To configure the initial branch name to use in all
-hint: of your new repositories, which will suppress this warning, call:
-hint: 
-hint: 	git config --global init.defaultBranch &lt;name&gt;
-hint: 
-hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
-hint: 'development'. The just-created branch can be renamed via this command:
-hint: 
-hint: 	git branch -m &lt;name&gt;
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Initialized empty Git repository in /home/fluxpres/git/neonflux.git/
-</pre>
 </div>
 </div>
 </div>
@@ -8201,12 +8039,12 @@ IdentityFile ~/.ssh/fluxpres
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3edfb21de7ba2963">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3edfb21de7ba2963">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
@@ -8222,21 +8060,6 @@ cp .gitignore <span class="nv">$HOME</span>/scrap/work/neonflux/.gitignore
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Cloning into '/Users/en/scrap/work/neonflux'...
-Warning: Permanently added '[neon.local.gd]:31022' (ED25519) to the list of known hosts.
-warning: You appear to have cloned an empty repository.
-</pre>
-</div>
-</div>
-</div>
-</div>
 </div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ee7327b95081b21a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -8248,12 +8071,12 @@ warning: You appear to have cloned an empty repository.
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8b3ba6f6b3cad33f">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8b3ba6f6b3cad33f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
@@ -8267,213 +8090,6 @@ flux install <span class="se">\</span>
 git add . <span class="p">;</span> git commit -a -m <span class="s2">"Initial commit"</span> <span class="p">;</span> git push
 <span class="nb">popd</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>~/scrap/work/neonflux ~/git/private/neonpandora
-[master (root-commit) 0fed582] Initial commit
- 176 files changed, 158469 insertions(+)
- create mode 100644 .gitignore
- create mode 100644 base/cert-manager/README.md
- create mode 100644 base/cert-manager/cert-manager.yaml
- create mode 100644 base/cert-manager/kustomization.yaml
- create mode 100644 base/distributionregistry/README.md
- create mode 100644 base/distributionregistry/certificate.yaml
- create mode 100644 base/distributionregistry/config.json
- create mode 100644 base/distributionregistry/htpasswd
- create mode 100644 base/distributionregistry/kustomization.yaml
- create mode 100644 base/distributionregistry/registry-cert-test.yaml
- create mode 100644 base/distributionregistry/registry-deployment.yaml
- create mode 100644 base/distributionregistry/registry-pvc.yaml
- create mode 100644 base/distributionregistry/registry-service.yaml
- create mode 100644 base/monitoring/Readme.md
- create mode 100644 base/monitoring/alertmanager/alertmanager-alertmanager.yaml
- create mode 100644 base/monitoring/alertmanager/alertmanager-networkPolicy.yaml
- create mode 100644 base/monitoring/alertmanager/alertmanager-podDisruptionBudget.yaml
- create mode 100644 base/monitoring/alertmanager/alertmanager-prometheusRule.yaml
- create mode 100644 base/monitoring/alertmanager/alertmanager-service.yaml
- create mode 100644 base/monitoring/alertmanager/alertmanager-serviceAccount.yaml
- create mode 100644 base/monitoring/alertmanager/alertmanager-serviceMonitor.yaml
- create mode 100644 base/monitoring/alertmanager/kustomization.yaml
- create mode 100644 base/monitoring/fluxcd/Readme.md
- create mode 100644 base/monitoring/fluxcd/flux-alerts.yaml
- create mode 100644 base/monitoring/fluxcd/fluxcd-podmonitor.yaml
- create mode 100644 base/monitoring/fluxcd/kustomization.yaml
- create mode 100644 base/monitoring/fluxcd/prometheus-k8s-role.yaml
- create mode 100644 base/monitoring/fluxcd/prometheus-roleBinding.yaml
- create mode 100644 base/monitoring/grafana/grafana-config.yaml
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/alertmanager-overview/alertmanager-overview.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/coredns/Readme.md
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/coredns/coredns-with-nodelocaldns_rev1-11759.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/coredns/coredns_rev1-12539.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/coredns/coredns_rev1_12028.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/coredns/coredns_rev1_16358.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/coredns/k8s-coredns_rev1-12382.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/coredns/kubernetes-system-coredns_rev1-15762.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/flux/Readme.md
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/flux/cluster.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/flux/control-plane.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/flux/flux2_rev1.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/grafana-overview/grafana-overview.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/kubernetes/cluster-total.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/kubernetes/controller-manager.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/kubernetes/k8s-resources-cluster.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/kubernetes/k8s-resources-namespace.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/kubernetes/k8s-resources-node.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/kubernetes/k8s-resources-pod.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/kubernetes/k8s-resources-workload.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/kubernetes/k8s-resources-workloads-namespace.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/kubernetes/kubelet.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/kubernetes/namespace-by-pod.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/kubernetes/namespace-by-workload.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/kubernetes/persistentvolumesusage.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/kubernetes/pod-total.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/kubernetes/scheduler.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/kubernetes/workload-total.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/nginx-controller/nginx-controller-overview.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/node-exporter/node-cluster-rsrc-use.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/node-exporter/node-rsrc-use.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/node-exporter/nodes.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/prometheus/prometheus-remote-write.json
- create mode 100644 base/monitoring/grafana/grafana-dashboard-definitions/prometheus/prometheus.json
- create mode 100644 base/monitoring/grafana/grafana-dashboardDatasources.yaml
- create mode 100644 base/monitoring/grafana/grafana-dashboardDefinitions.yaml
- create mode 100644 base/monitoring/grafana/grafana-dashboardSources.yaml
- create mode 100644 base/monitoring/grafana/grafana-deployment.yaml
- create mode 100644 base/monitoring/grafana/grafana-environment.yaml
- create mode 100644 base/monitoring/grafana/grafana-networkPolicy.yaml
- create mode 100644 base/monitoring/grafana/grafana-prometheusRule.yaml
- create mode 100644 base/monitoring/grafana/grafana-service.yaml
- create mode 100644 base/monitoring/grafana/grafana-serviceAccount.yaml
- create mode 100644 base/monitoring/grafana/grafana-serviceMonitor.yaml
- create mode 100644 base/monitoring/grafana/kustomization.yaml
- create mode 100644 base/monitoring/kube-state-metrics/Readme.md
- create mode 100644 base/monitoring/kube-state-metrics/kubeStateMetrics-clusterRole.yaml
- create mode 100644 base/monitoring/kube-state-metrics/kubeStateMetrics-clusterRoleBinding.yaml
- create mode 100644 base/monitoring/kube-state-metrics/kubeStateMetrics-deployment.yaml
- create mode 100644 base/monitoring/kube-state-metrics/kubeStateMetrics-networkPolicy.yaml
- create mode 100644 base/monitoring/kube-state-metrics/kubeStateMetrics-prometheusRule.yaml
- create mode 100644 base/monitoring/kube-state-metrics/kubeStateMetrics-service.yaml
- create mode 100644 base/monitoring/kube-state-metrics/kubeStateMetrics-serviceAccount.yaml
- create mode 100644 base/monitoring/kube-state-metrics/kubeStateMetrics-serviceMonitor.yaml
- create mode 100644 base/monitoring/kube-state-metrics/kustomization.yaml
- create mode 100644 base/monitoring/kubernetes-controlplane/Readme.md
- create mode 100644 base/monitoring/kubernetes-controlplane/kubernetesControlPlane-prometheusRule.yaml
- create mode 100644 base/monitoring/kubernetes-controlplane/kubernetesControlPlane-serviceMonitorApiserver.yaml
- create mode 100644 base/monitoring/kubernetes-controlplane/kubernetesControlPlane-serviceMonitorCoreDNS.yaml
- create mode 100644 base/monitoring/kubernetes-controlplane/kubernetesControlPlane-serviceMonitorKubeControllerManager.yaml
- create mode 100644 base/monitoring/kubernetes-controlplane/kubernetesControlPlane-serviceMonitorKubeScheduler.yaml
- create mode 100644 base/monitoring/kubernetes-controlplane/kubernetesControlPlane-serviceMonitorKubelet.yaml
- create mode 100644 base/monitoring/kubernetes-controlplane/kustomization.yaml
- create mode 100644 base/monitoring/kustomization.yaml
- create mode 100644 base/monitoring/node-exporter/Readme.md
- create mode 100644 base/monitoring/node-exporter/kustomization.yaml
- create mode 100644 base/monitoring/node-exporter/nodeExporter-clusterRole.yaml
- create mode 100644 base/monitoring/node-exporter/nodeExporter-clusterRoleBinding.yaml
- create mode 100644 base/monitoring/node-exporter/nodeExporter-daemonset.yaml
- create mode 100644 base/monitoring/node-exporter/nodeExporter-networkPolicy.yaml
- create mode 100644 base/monitoring/node-exporter/nodeExporter-prometheusRule.yaml
- create mode 100644 base/monitoring/node-exporter/nodeExporter-service.yaml
- create mode 100644 base/monitoring/node-exporter/nodeExporter-serviceAccount.yaml
- create mode 100644 base/monitoring/node-exporter/nodeExporter-serviceMonitor.yaml
- create mode 100644 base/monitoring/operator/kustomization.yaml
- create mode 100644 base/monitoring/operator/prometheus-operator.yaml
- create mode 100644 base/monitoring/prometheus/Readme.md
- create mode 100644 base/monitoring/prometheus/kustomization.yaml
- create mode 100644 base/monitoring/prometheus/prometheus-clusterRole.yaml
- create mode 100644 base/monitoring/prometheus/prometheus-clusterRoleBinding.yaml
- create mode 100644 base/monitoring/prometheus/prometheus-networkPolicy.yaml
- create mode 100644 base/monitoring/prometheus/prometheus-podDisruptionBudget.yaml
- create mode 100644 base/monitoring/prometheus/prometheus-prometheus.yaml
- create mode 100644 base/monitoring/prometheus/prometheus-prometheusRule.yaml
- create mode 100644 base/monitoring/prometheus/prometheus-roleBindingConfig.yaml
- create mode 100644 base/monitoring/prometheus/prometheus-roleBindingSpecificNamespaces.yaml
- create mode 100644 base/monitoring/prometheus/prometheus-roleConfig.yaml
- create mode 100644 base/monitoring/prometheus/prometheus-roleSpecificNamespaces.yaml
- create mode 100644 base/monitoring/prometheus/prometheus-service.yaml
- create mode 100644 base/monitoring/prometheus/prometheus-serviceAccount.yaml
- create mode 100644 base/monitoring/prometheus/prometheus-serviceMonitor.yaml
- create mode 100644 base/neoncode/apps_v1_deployment_neoncode.yaml
- create mode 100644 base/neoncode/kustomization.yaml
- create mode 100644 base/neoncode/v1_service_neoncode.yaml
- create mode 100644 base/proxy-prometheus/kustomization.yaml
- create mode 100644 base/proxy-prometheus/nginx-prometheus-proxy-service.yaml
- create mode 100644 base/proxy-prometheus/nginx-prometheus-proxy.conf
- create mode 100644 base/proxy-prometheus/nginx-prometheus-proxy.yaml
- create mode 100644 base/sshd/apps_v1_deployment_sshd.yaml
- create mode 100644 base/sshd/kustomization.yaml
- create mode 100644 base/sshd/sshd-pvc.yaml
- create mode 100644 base/sshd/v1_service_sshd.yaml
- create mode 100644 base/tekton/README.md
- create mode 100644 base/tekton/kustomization.yaml
- create mode 100644 base/tekton/tekton-dashboard.yaml
- create mode 100644 base/tekton/tekton-interceptors.yaml
- create mode 100644 base/tekton/tekton-triggers.yaml
- create mode 100644 base/tekton/tekton.yaml
- create mode 100644 flux/platform/kustomization.yaml
- create mode 100644 flux/platform/monitoring/alertmanager-config.yaml
- create mode 100644 flux/platform/monitoring/flux-prometheus-k8s-role.yaml
- create mode 100644 flux/platform/monitoring/flux-prometheus-k8s-rolebinding.yaml
- create mode 100644 flux/platform/monitoring/grafana-alerting.yaml
- create mode 100644 flux/platform/monitoring/grafana-datasources.yaml
- create mode 100644 flux/platform/monitoring/grafana-env-patch.yaml
- create mode 100644 flux/platform/monitoring/kustomization.yaml
- create mode 100644 flux/platform/monitoring/namespace.yaml
- create mode 100644 flux/system/flux-platform-sync.yaml
- create mode 100644 flux/system/flux-system-sync.yaml
- create mode 100644 flux/system/flux-tenant-sync.yaml
- create mode 100644 flux/system/gotk-components.yaml
- create mode 100644 flux/system/kustomization.yaml
- create mode 100644 flux/tenant/backend/kustomization.yaml
- create mode 100644 flux/tenant/backend/neoncode-patch.yaml
- create mode 100644 flux/tenant/backend/nginx.yaml
- create mode 100644 flux/tenant/clusterissuer-self-signed.yaml
- create mode 100644 flux/tenant/dev-team.yaml
- create mode 100644 flux/tenant/kustomization.yaml
- create mode 100644 flux/tenant/management/distributionregistry/README.md
- create mode 100644 flux/tenant/management/distributionregistry/kustomization.yaml
- create mode 100644 flux/tenant/management/kustomization.yaml
- create mode 100644 flux/tenant/management/namespace.yaml
- create mode 100644 flux/tenant/management/sshd/kustomization.yaml
- create mode 100644 flux/tenant/neon-builder/README.md
- create mode 100644 flux/tenant/neon-builder/git-clone-task.yaml
- create mode 100644 flux/tenant/neon-builder/git-credentials.yaml
- create mode 100644 flux/tenant/neon-builder/kustomization.yaml
- create mode 100644 flux/tenant/neon-builder/maven-task.yaml
- create mode 100644 flux/tenant/neon-builder/neon-build-pipeline.yaml
- create mode 100644 flux/tenant/neon-builder/neon-build-task.yaml
- create mode 100644 flux/tenant/neon-builder/neon-builder-namespace.yaml
- create mode 100644 flux/tenant/neon-builder/neon-event-listener.yaml
- create mode 100644 flux/tenant/neon-builder/neon-pipeline-run.yaml
- create mode 100644 flux/tenant/neon-builder/neon-post-build-task.yaml
- create mode 100644 flux/tenant/neon-builder/neon-trigger-binding.yaml
- create mode 100644 flux/tenant/neon-builder/neon-trigger-template.yaml
- create mode 100644 flux/tenant/neon-builder/sa-and-rbac-neon-builder.yaml
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Warning: Permanently added '[neon.local.gd]:31022' (ED25519) to the list of known hosts.
-To ssh://neon.local.gd:31022/home/fluxpres/git/neonflux.git
- * [new branch]      master -&gt; master
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>~/git/private/neonpandora
-</pre>
 </div>
 </div>
 </div>
@@ -8509,12 +8125,12 @@ To ssh://neon.local.gd:31022/home/fluxpres/git/neonflux.git
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=18e46bdf718a9017">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=18e46bdf718a9017">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
@@ -8532,55 +8148,6 @@ git add .
 git commit -a -m <span class="s2">"Add secret and sync configurations"</span> <span class="o">&amp;&amp;</span> git push
 <span class="nb">popd</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>~/scrap/work/neonflux ~/git/private/neonpandora
-Correct sshd hostname to what it is inside cluster
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre># sshd.management:22 SSH-2.0-OpenSSH_9.6
-# sshd.management:22 SSH-2.0-OpenSSH_9.6
-# sshd.management:22 SSH-2.0-OpenSSH_9.6
-# sshd.management:22 SSH-2.0-OpenSSH_9.6
-# sshd.management:22 SSH-2.0-OpenSSH_9.6
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[master dc93a48] Add secret and sync configurations
- 1 file changed, 1 insertion(+), 1 deletion(-)
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Warning: Permanently added '[neon.local.gd]:31022' (ED25519) to the list of known hosts.
-To ssh://neon.local.gd:31022/home/fluxpres/git/neonflux.git
-   55247a3..dc93a48  master -&gt; master
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>~/git/private/neonpandora
-</pre>
 </div>
 </div>
 </div>
@@ -8645,8 +8212,8 @@ kubectl -n flux-system get pods --watch
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">bash</span>
-<span class="n">flux</span> <span class="n">get</span> <span class="n">kustomization</span> <span class="o">-</span><span class="n">A</span>
+<div class="highlight hl-ipython3"><pre><span></span>%%bash
+flux get kustomization -A
 </pre></div>
 </div>
 </div>
@@ -8679,12 +8246,12 @@ ssh -i ~/.ssh/fluxpres -p <span class="m">31022</span> fluxpres@neon.local.gd <s
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4139d782-498b-4eb8-9bdf-34c6513a82cb">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4139d782-498b-4eb8-9bdf-34c6513a82cb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
@@ -8700,40 +8267,6 @@ git push
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Cloning into '/Users/en/scrap/work/neoncode'...
-Warning: Permanently added '[neon.local.gd]:31022' (ED25519) to the list of known hosts.
-warning: You appear to have cloned an empty repository.
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>~/scrap/work/neoncode ~/git/private/neonpandora
-[main (root-commit) db1a866] Initial commit
- 1 file changed, 1 insertion(+)
- create mode 100644 README.md
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Warning: Permanently added '[neon.local.gd]:31022' (ED25519) to the list of known hosts.
-To ssh://neon.local.gd:31022/home/fluxpres/git/neoncode.git
- * [new branch]      main -&gt; master
-</pre>
-</div>
-</div>
-</div>
-</div>
 </div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a224a5ce53a4a640">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -8741,16 +8274,16 @@ To ssh://neon.local.gd:31022/home/fluxpres/git/neoncode.git
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Set-up-a-Quarkus-project">Set up a Quarkus project<a class="anchor-link" href="#Set-up-a-Quarkus-project">¶</a></h3><p>Initialize Quarkus project</p>
+<h3 id="Quarkus-initialization">Quarkus initialization<a class="anchor-link" href="#Quarkus-initialization">¶</a></h3>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9c7c38c7bccec394">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9c7c38c7bccec394">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
@@ -8772,122 +8305,6 @@ git push
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>~/scrap/work/neoncode ~/git/private/neonpandora
-Looking for the newly published extensions in registry.quarkus.io
-
-A new project would have been created in
-	/Users/en/scrap/work/neoncode/neoncode
-
-The project would have been created using the following settings:
-
-  Build tool                MAVEN
-  Codegen No Code           false
-  Codegen No Dockerfiles    false
-  Data                      {}
-  Omit build tool wrapper   false
-  Project App Config        {}
-  Project Artifact Id       neoncode
-  Project Extensions        []
-  Project Group Id          no.scienta
-  Project Java Version      21
-  Project Version           1.0.0-SNAPSHOT
-  Quarkus Core Version      3.7.3
-
------------
-
-applying codestarts...
-📚 java
-🔨 maven
-📦 quarkus
-📝 config-properties
-🔧 tooling-dockerfiles
-🔧 tooling-maven-wrapper
-🚀 resteasy-reactive-codestart
-
------------
-[SUCCESS] ✅  quarkus project has been successfully generated in:
---&gt; /Users/en/scrap/work/neoncode/neoncode
------------
-Navigate into this directory and get started: quarkus dev
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>mv: neoncode and ./neoncode are identical
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Looking for the newly published extensions in registry.quarkus.io
-[SUCCESS] ✅  Extension io.quarkus:quarkus-kubernetes has been installed
-[SUCCESS] ✅  Extension io.quarkus:quarkus-micrometer-registry-prometheus has been installed
-[SUCCESS] ✅  Extension io.quarkus:quarkus-container-image-jib has been installed
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] ------------------------&lt; no.scienta:neoncode &gt;-------------------------
-[INFO] Building neoncode 1.0.0-SNAPSHOT
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- quarkus:3.7.3:add-extension (default-cli) @ neoncode ---
-[INFO] [SUCCESS] ✅  Extension io.quarkus:quarkus-smallrye-health has been installed
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  1.011 s
-[INFO] Finished at: 2024-02-19T12:02:34+01:00
-[INFO] ------------------------------------------------------------------------
-[main 6f443b9] Quarkus project created
- 18 files changed, 1441 insertions(+), 1 deletion(-)
- create mode 100644 .dockerignore
- create mode 100644 .gitignore
- create mode 100644 .mvn/wrapper/.gitignore
- create mode 100644 .mvn/wrapper/MavenWrapperDownloader.java
- create mode 100644 .mvn/wrapper/maven-wrapper.properties
- create mode 100755 mvnw
- create mode 100644 mvnw.cmd
- create mode 100644 pom.xml
- create mode 100644 src/main/docker/Dockerfile.jvm
- create mode 100644 src/main/docker/Dockerfile.legacy-jar
- create mode 100644 src/main/docker/Dockerfile.native
- create mode 100644 src/main/docker/Dockerfile.native-micro
- create mode 100644 src/main/java/no/scienta/GreetingResource.java
- create mode 100644 src/main/resources/META-INF/resources/index.html
- create mode 100644 src/main/resources/application.properties
- create mode 100644 src/test/java/no/scienta/GreetingResourceIT.java
- create mode 100644 src/test/java/no/scienta/GreetingResourceTest.java
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Warning: Permanently added '[neon.local.gd]:31022' (ED25519) to the list of known hosts.
-To ssh://neon.local.gd:31022/home/fluxpres/git/neoncode.git
-   db1a866..6f443b9  main -&gt; master
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>~/git/private/neonpandora
-</pre>
-</div>
-</div>
-</div>
-</div>
 </div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=303331d7-b774-4973-832e-d9e1e27cd14f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -8899,13 +8316,12 @@ To ssh://neon.local.gd:31022/home/fluxpres/git/neoncode.git
 </div>
 </div>
 </div>
-</div><aside class="notes">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=579bb892bcbeedc7">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=579bb892bcbeedc7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
@@ -8920,46 +8336,14 @@ git push
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>~/scrap/work/neoncode ~/git/private/neonpandora
-[main 7bfc826] Application configration added
- 2 files changed, 20 insertions(+), 41 deletions(-)
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Warning: Permanently added '[neon.local.gd]:31022' (ED25519) to the list of known hosts.
-To ssh://neon.local.gd:31022/home/fluxpres/git/neoncode.git
-   6f443b9..7bfc826  main -&gt; master
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>~/git/private/neonpandora
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</aside><div class="fragment">
+</div><aside class="notes">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6f7cac32-8c5f-49a4-8fc0-8af8e9917fea">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>???</p>
+<p>More information:</p>
 <ul>
 <li><a href="https://quarkus.io/get-started/">https://quarkus.io/get-started/</a></li>
 </ul>
@@ -8971,7 +8355,8 @@ To ssh://neon.local.gd:31022/home/fluxpres/git/neoncode.git
 </div>
 </div>
 </div>
-</div></div></section><section>
+</div>
+</aside></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f4776d98e1e3481c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -9009,29 +8394,17 @@ quarkus dev
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=495eafeb2eac2406">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=495eafeb2eac2406">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
 curl -s http://localhost:8080/hello
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Hello from RESTEasy Reactive</pre>
 </div>
 </div>
 </div>
@@ -9075,7 +8448,7 @@ curl -s http://localhost:8080/hello
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
 <span class="nb">cd</span> ~/scrap/work/neonflux/
-   <span class="nb">export</span> <span class="nv">LINE</span><span class="o">=</span><span class="k">$(</span> cat <span class="nv">$HOME</span>/.ssh/fluxpres <span class="p">|</span> base64 <span class="k">)</span>
+<span class="nb">export</span> <span class="nv">LINE</span><span class="o">=</span><span class="k">$(</span> cat <span class="nv">$HOME</span>/.ssh/fluxpres <span class="p">|</span> base64 <span class="k">)</span>
 gsed -i <span class="s1">'s|\(id_rsa:\).*|\1 '</span><span class="nv">$LINE</span><span class="s1">'|g'</span> flux/tenant/neon-builder/git-credentials.yaml
 git commit flux -m <span class="s2">"Update credentials"</span>
 git push
@@ -9091,7 +8464,7 @@ git push
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Build-with-tekton...-:-Elements">Build with tekton... : Elements<a class="anchor-link" href="#Build-with-tekton...-:-Elements">¶</a></h3><table>
+<h3 id="Tekton-elements">Tekton elements<a class="anchor-link" href="#Tekton-elements">¶</a></h3><table>
 <thead>
 <tr>
 <th>element</th>
@@ -9129,19 +8502,17 @@ types of build pipelines in the same project.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b351642043ac0e24">
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e7a57e59-5b90-4aa5-b3e1-f8a407f36f5c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span>%%bash
-screen -m -S tekton <span class="se">\</span>
-   kubectl --namespace tekton-pipelines port-forward svc/tekton-dashboard <span class="m">9097</span>:9097
-</pre></div>
-</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Tekton-has-a-dashboard">Tekton has a dashboard<a class="anchor-link" href="#Tekton-has-a-dashboard">¶</a></h4><p>(Cannot be started through jupyter as it needs to reside in the background.)</p>
+<pre><code>screen -m -d -S tekton \
+   kubectl --namespace tekton-pipelines port-forward svc/tekton-dashboard 9097:9097
+</code></pre>
 </div>
 </div>
 </div>
