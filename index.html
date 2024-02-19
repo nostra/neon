@@ -8728,11 +8728,12 @@ docker pull localhost:5001/scienta/neon:1.0.0-SNAPSHOT
 <li>Tekton is fairly verbose</li>
 <li>As build is done by Kubernetes objects, pipeline runs remains as cruft as you need / want to see logs</li>
 <li>Github actions is easier to grasp, and you can still build inside the cluster</li>
+<li>You want to consider a separate build cluster for security reasons</li>
 </ul>
 </div>
 </div>
 </div>
-</div></section><section>
+</div><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dd3c47bc-734a-4eef-8f1f-aebe7209428d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8744,7 +8745,7 @@ docker pull localhost:5001/scienta/neon:1.0.0-SNAPSHOT
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3a46cfdf7b98b96a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8857,43 +8858,16 @@ kubectl create -f -
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=681a11b6-c9f3-4bb4-9ccf-6c0e89e022f0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=784e0c2f-962e-4126-8c05-d2d781da0de0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>In order to keep the port-forwarding, I use screen, as jupyter needs to terminate the command in order to execute the next.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3e69108d-5527-4407-bc16-c86f6fb6ccc2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span>%%bash
-screen -d -m -S prometheus kubectl port-forward -n monitoring svc/prometheus-k8s <span class="m">9090</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5c219811-bf84-4c32-a440-770391e19272">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span>%%bash
-screen -d -m -S grafana kubectl port-forward -n monitoring svc/grafana <span class="m">3000</span>
-</pre></div>
-</div>
+<p>In order to keep the port-forwarding, I use screen. Have to start it manually, as jupyter does not want to run applications in the background.</p>
+<pre><code>screen -d -m -S prometheus kubectl port-forward -n monitoring svc/prometheus-k8s 9090
+screen -d -m -S grafana kubectl port-forward -n monitoring svc/grafana 3000
+</code></pre>
 </div>
 </div>
 </div>
@@ -8914,14 +8888,14 @@ screen -d -m -S grafana kubectl port-forward -n monitoring svc/grafana <span cla
 </div>
 </div>
 </div>
-</aside>
+</aside></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=33936b5d-240e-4950-93f2-045d4a05ce48">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Cleanup">Cleanup<a class="anchor-link" href="#Cleanup">¶</a></h3><p>To remove the kind cluster and what that has been set up:</p>
+<h3 id="Cleanup">Cleanup<a class="anchor-link" href="#Cleanup">¶</a></h3><p>To remove the kind cluster and what that has been set up in docker:</p>
 </div>
 </div>
 </div>
