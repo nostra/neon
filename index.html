@@ -7473,7 +7473,7 @@ main {
 <li>ssh server to use as internal git repository</li>
 <li>create a Quarkus-based application</li>
 <li>build the application in the cluster at check-in</li>
-<li>continous deployment</li>
+<li>continuous deployment</li>
 <li>collect metrics from the application</li>
 <li>get alerts</li>
 </ul>
@@ -8003,7 +8003,7 @@ kubectl create -n management -k base/sshd
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="GitOps-with-Kustomize">GitOps with Kustomize<a class="anchor-link" href="#GitOps-with-Kustomize">¶</a></h2><p>First create repository on the ssh-server inside kind:</p>
+<h2 id="GitOps-with-Flux">GitOps with Flux<a class="anchor-link" href="#GitOps-with-Flux">¶</a></h2><p>First create repository on the ssh-server inside the Kubernetes cluster:</p>
 </div>
 </div>
 </div>
@@ -8078,7 +8078,7 @@ cp .gitignore <span class="nv">$HOME</span>/scrap/work/neonflux/.gitignore
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="...--and-enable-Flux">...  and enable Flux<a class="anchor-link" href="#...--and-enable-Flux">¶</a></h2>
+<h3 id="...--and-enable-Flux">...  and enable Flux<a class="anchor-link" href="#...--and-enable-Flux">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8230,25 +8230,50 @@ flux get kustomization -A
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a07a8f35-7276-4855-a867-88d815d55ffa">
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bfd5e1c1-da06-4bf0-9b57-20f1c454f63a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Webhook">Webhook<a class="anchor-link" href="#Webhook">¶</a></h3>
+<h3 id="Webhook-to-trigger-Flux-upon-check-in">Webhook to trigger Flux upon check-in<a class="anchor-link" href="#Webhook-to-trigger-Flux-upon-check-in">¶</a></h3><p>FluxCD has a <a href="https://fluxcd.io/flux/components/notification/receivers/">number of ways</a> to set up web hooks.
+Token can be generated with <code>head -c 12 /dev/urandom | shasum | cut -d ' ' -f1</code>, but I'm not regenerating it for this example.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b4581c67-f7e8-4f7b-8b63-73262d9bff25">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9fa7d060-2c90-42c6-9435-1363b217aa9d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>TODO</p>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span>%%bash
+<span class="nv">WEBHOOK_PATH</span><span class="o">=</span><span class="k">$(</span>kubectl get -n flux-system Receiver flux-webhook -o yaml<span class="p">|</span>yq <span class="nb">eval</span> <span class="s1">'.status.webhookPath'</span><span class="p">|</span> cut -c <span class="m">2</span>-<span class="k">)</span>
+
+gsed -i <span class="s1">'s|\(WEBHOOK_PATH=\).*|\1'</span><span class="s2">"</span><span class="nv">$WEBHOOK_PATH</span><span class="s2">"</span><span class="s1">'|g'</span> post-webhook.sh
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2d8de423-e82c-48ee-814f-5d0a77b2290b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span>%%bash
+scp -i ~/.ssh/fluxpres -P <span class="m">31022</span> post-webhook.sh <span class="se">\</span>
+    fluxpres@neon.local.gd:/home/fluxpres/git/neonflux.git/hooks/post-receive
+ssh -i  ~/.ssh/fluxpres -p <span class="m">31022</span> fluxpres@neon.local.gd <span class="se">\</span>
+    chmod a+x /home/fluxpres/git/neonflux.git/hooks/post-receive
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -8536,7 +8561,7 @@ types of build pipelines in the same project.</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e7a57e59-5b90-4aa5-b3e1-f8a407f36f5c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f9fe6a0c-761c-4cd4-962e-a9b0a0c9df00">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8546,17 +8571,8 @@ types of build pipelines in the same project.</p>
 <pre><code>screen -m -d -S tekton \
    kubectl --namespace tekton-pipelines port-forward svc/tekton-dashboard 9097:9097
 </code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ceae4935fc260e2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Then open <a href="http://localhost:9097/">http://localhost:9097/</a></p>
+<p>For this presentation, Tekton is exposed here: <a href="http://tekton.local.gd:31090/">http://tekton.local.gd:31090/</a></p>
 </div>
 </div>
 </div>
@@ -8901,6 +8917,7 @@ kubectl create -f -
 <pre><code>screen -d -m -S prometheus kubectl port-forward -n monitoring svc/prometheus-k8s 9090
 screen -d -m -S grafana kubectl port-forward -n monitoring svc/grafana 3000
 </code></pre>
+<p>For convenience: <a href="http://neon.local.gd:31090/">http://neon.local.gd:31090/</a></p>
 </div>
 </div>
 </div>
