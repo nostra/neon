@@ -1,0 +1,39 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+  name: neon-trigger-template
+spec:
+  params:
+    - name: reponame
+      default: "undefined"
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1beta1
+      kind: PipelineRun
+      metadata:
+        generateName: neon-build-run-
+      spec:
+        pipelineRef:
+          name: neon-build-pipeline
+        podTemplate:
+          securityContext:
+            fsGroup: 65532
+        workspaces:
+          - name: shared-data
+            volumeClaimTemplate:
+              spec:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 1Gi
+          - name: git-credentials
+            secret:
+              secretName: git-credentials
+          - name: maven-settings
+            emptyDir: {}
+          - name: maven-local-m2
+            emptyDir: {}
+
+        params:
+          - name: reponame
+            value: $(tt.params.reponame)

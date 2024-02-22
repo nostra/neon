@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: neon-builder
+resources:
+ - git-clone-task.yaml
+ - git-credentials.yaml
+ - maven-task.yaml
+ - neon-build-pipeline.yaml
+ - neon-build-task.yaml
+ - neon-builder-namespace.yaml
+ - neon-event-listener.yaml
+ - neon-post-build-task.yaml
+ - neon-trigger-binding.yaml
+ - neon-trigger-template.yaml
+ - sa-and-rbac-neon-builder.yaml

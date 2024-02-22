@@ -1,0 +1,22 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: neon-post-build
+spec:
+  workspaces:
+    - name: source
+  params:
+    - name: reponame
+      type: string
+  steps:
+#    - name: assemble-image
+#      image: maven:3.9.6-eclipse-temurin-21
+#      script: |
+#        #!/bin/sh
+#        cd /workspace/source
+#        mvn io.quarkus:quarkus-maven-plugin:image-build
+    - name: neon-post-build
+      image: ubuntu
+      script: |
+        #!/bin/bash
+        echo "Finished building $(params.reponame)!"

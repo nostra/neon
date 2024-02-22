@@ -1,0 +1,29 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: neon-build-run-
+spec:
+  pipelineRef:
+    name: neon-build-pipeline
+  podTemplate:
+    securityContext:
+      fsGroup: 65532
+  workspaces:
+    - name: shared-data
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Gi
+    - name: maven-settings
+      emptyDir: {}
+    - name: maven-local-m2
+      emptyDir: {}
+    - name: git-credentials
+      secret:
+        secretName: git-credentials
+  params:
+    - name: reponame
+      value: neoncode

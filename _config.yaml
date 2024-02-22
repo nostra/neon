@@ -1,0 +1,15 @@
+title: 'NeonPandora'
+author: Erlend Nossum
+
+# https://jupyterbook.org/en/stable/customize/config.html
+
+repository:
+  url: "https://github.com/nostra/neon"
+  branch: main
+  path_to_book: /
+
+execute:
+  execute_notebooks: 'off'
+
+html:
+  extra_footer: "<span css='text-align: right;'/>Scienta</span>"

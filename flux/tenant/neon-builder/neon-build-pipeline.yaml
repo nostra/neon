@@ -1,0 +1,77 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: neon-build-pipeline
+spec:
+  description: |
+    This pipeline clones a git repo, then builds quarkus project
+  workspaces:
+    - name: shared-data
+      description: |
+        This workspace contains the cloned repo files, so they can be read by the
+        next task.
+    - name: git-credentials
+      description: My ssh credentials
+    - name: maven-settings
+      description: empty
+    - name: maven-local-m2
+      description: empty
+  params:
+    - name: reponame
+      type: string
+  tasks:
+    - name: fetch-source
+      taskRef:
+        name: git-clone
+      workspaces:
+        - name: output
+          workspace: shared-data
+        - name: ssh-directory
+          workspace: git-credentials
+      params:
+        - name: url
+          value: ssh://fluxpres@sshd.management:22/home/fluxpres/git/$(params.reponame).git
+#    - name: neon-build
+#      runAfter: [ "fetch-source" ]
+#      taskRef:
+#        name: neon-build
+#      workspaces:
+#        - name: source
+#          workspace: shared-data
+    - name: neon-build
+      runAfter: [ "fetch-source" ]
+      taskRef:
+        name: maven
+      params: # TODO Need to fix docker certificate
+        - name: GOALS
+          value:
+            # - -DskipTests
+            - -Dquarkus.container-image.build=true
+#            - -Dquarkus.container-image.username=testuser
+#            - -Dquarkus.container-image.password=testpassword # TODO make more secure
+            - -Dquarkus.container-image.insecure=true
+            - -Dquarkus.container-image.push=true
+            - -Dquarkus.container-image.registry=kind-registry:5000
+            - -B
+            - clean
+            - package
+        - name: MAVEN_IMAGE # Need to adjust image, as default won't build jdk 21
+          value: "maven:3.9.6-eclipse-temurin-21"
+      workspaces:
+        - name: source
+          workspace: shared-data
+        - name: maven-settings # TODO Create PVC
+          workspace: maven-settings
+        - name: maven-local-repo
+          workspace: maven-local-m2
+    - name: neon-post-build
+      runAfter:
+        - neon-build
+      taskRef:
+        name: neon-post-build
+      params:
+        - name: reponame
+          value: $(params.reponame)
+      workspaces:
+        - name: source
+          workspace: shared-data

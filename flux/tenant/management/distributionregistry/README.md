@@ -1,0 +1,1 @@
+Note that with kind, we are not running the registry within the cluster

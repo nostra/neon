@@ -1,0 +1,24 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: neon-build
+spec:
+  workspaces:
+    - name: source
+  steps:
+    - name: neon-pre-build
+      image: ubuntu
+      script: |
+        #!/bin/bash
+        echo "Pre-build step"
+        echo "--- / ----"
+        #
+        # NOTE NOTE NOTE
+        # This task is currently not in use
+        #
+    - name: build
+      # image: maven:3.9.6-eclipse-temurin-21
+      image: gcr.io/cloud-builders/mvn
+      script: |
+        #!/bin/sh
+        mvn -Dquarkus.container-image.build=true -B quarkus:build -f workspace/source/pom.xml

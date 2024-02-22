@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: registry
+  labels:
+    name: registry
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      name: registry
+  template:
+    metadata:
+      labels:
+        name: registry
+    spec:
+      volumes:
+        - name: registry-pvc
+          persistentVolumeClaim:
+            claimName: registry-pvc
+        - name: registry
+          emptyDir: {}
+        - name: htpasswd
+          secret:
+            secretName: htpasswd
+            items:
+              - key: "htpasswd"
+                path: "htpasswd"
+        - name: "registry-certs"
+          secret:
+            secretName: "registry-certs"
+            items:
+              - key: "tls.crt"
+                path: "cert.pem"
+              - key: "tls.key"
+                path: "key.pem"
+              - key: "ca.crt"
+                path: "ca.pem"
+      containers:
+      - name: registry
+        image: registry:2
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000
+        env:
+          - name: REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY
+            value: "/data"
+          #- name: REGISTRY_HTTP_SECRET
+          #  value: "neon" # TODO did not seem to bite
+          - name: REGISTRY_AUTH
+            value: "htpasswd"
+          - name: REGISTRY_AUTH_HTPASSWD_REALM
+            value: "Registry Realm"
+          - name: REGISTRY_AUTH_HTPASSWD_PATH
+            value: "/auth/htpasswd"
+          - name: REGISTRY_STORAGE_DELETE_ENABLED
+            value: "true"
+          - name: REGISTRY_HTTP_TLS_CERTIFICATE
+            value: "/certs/cert.pem"
+          - name: REGISTRY_HTTP_TLS_KEY
+            value: "/certs/key.pem"
+          - name: REGISTRY_HTTP_TLS_CLIENTCAS_0
+            value: "/certs/ca.pem"
+        resources:
+          requests:
+            memory: "50Mi"
+        readinessProbe:
+          failureThreshold: 1
+          httpGet:
+            path: /
+            port: 5000
+            scheme: HTTPS
+          initialDelaySeconds: 10
+          timeoutSeconds: 5
+        volumeMounts:
+          - mountPath: "/data"
+            name: registry-pvc
+          - mountPath: "/auth"
+            name: "htpasswd"
+          - mountPath: "/certs"
+            name: "registry-certs"

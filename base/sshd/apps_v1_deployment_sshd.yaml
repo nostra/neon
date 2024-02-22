@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sshd
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: sshd
+  template:
+    metadata:
+      labels:
+        app: sshd
+    spec:
+      volumes:
+        - name: sshd-pvc
+          persistentVolumeClaim:
+            claimName: sshd-pvc
+      containers:
+      #- image: flux_sshd:v1
+      - image: localhost:5001/flux_sshd:v1 # Image with kind
+        name: sshd
+        ports:
+        - containerPort: 2220
+        volumeMounts:
+          - mountPath: "/home/fluxpres/git"
+            name: sshd-pvc

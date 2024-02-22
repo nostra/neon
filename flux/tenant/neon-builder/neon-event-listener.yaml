@@ -1,0 +1,12 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: EventListener
+metadata:
+  name: neon-listener
+spec:
+  serviceAccountName: neon-builder
+  triggers:
+    - name: neon-trigger
+      bindings:
+      - ref: neon-trigger-binding
+      template:
+        ref: neon-trigger-template

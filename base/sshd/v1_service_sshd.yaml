@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: sshd
+  name: sshd
+spec:
+  ports:
+  - port: 22
+    nodePort: 31022
+    protocol: TCP
+    targetPort: 2220
+  selector:
+    app: sshd
+# TODO Does not work on Rancher  type: NodePort
+  type: NodePort
