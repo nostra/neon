@@ -7550,9 +7550,10 @@ main {
 <h3 id="Brew-installation">Brew installation<a class="anchor-link" href="#Brew-installation">¶</a></h3><pre><code>brew install kubectl
 brew install fluxcd/tap/flux
 brew install kind
-brew install kustomize
 brew install yq
+brew install kustomize
 </code></pre>
+<p>Kustomize is not really necessary, as <code>kubectl kustomize</code> is the same as <code>kustomize build</code>.</p>
 </div>
 </div>
 </div>
@@ -8838,11 +8839,22 @@ kustomize build . -o ~/scrap/work/neonflux/base/neoncode
 <span class="nb">cd</span> ~/scrap/work/neonflux/base/neoncode
 kustomize create --autodetect .
 <span class="nb">cd</span> ..
-<span class="c1">#git add neoncode</span>
-<span class="c1">#git commit neoncode -m "Add / update neon"</span>
-<span class="c1">#git push</span>
+git add neoncode
+git commit neoncode -m <span class="s2">"Add / update neon"</span>
+git push
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=32b7bdb1-12e1-4a06-9df1-bfd46b1243e1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Here, you can use <code>kubectl kustomize</code> if you haven't installed customize.</p>
 </div>
 </div>
 </div>
