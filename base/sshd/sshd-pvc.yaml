@@ -3,7 +3,6 @@ kind: PersistentVolumeClaim
 metadata:
   name: sshd-pvc
 spec:
-  # TODO Is this needed for kind? storageClassName: standard
   accessModes:
     - ReadWriteOnce
   resources:
