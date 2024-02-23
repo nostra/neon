@@ -12,7 +12,9 @@ https://nostra.github.io/neon/index.html
 To open jupyter outside of Intellij:
 
 ```shell
+python3 -m venv	venv
 source ./venv/bin/activate
+pip install --upgrade jupyterlab
 jupyter server
 ```
 
@@ -22,6 +24,7 @@ Then open: http://localhost:8888/lab
 
 Render into build directory upon change:
 ```shell
+source ./venv/bin/activate
 fswatch -0 *.ipynb | xargs -0 -I {} make
 ```
 
