@@ -7523,6 +7523,7 @@ main {
 <li><a href="https://fluxcd.io/docs/installation/#install-the-flux-cli">https://fluxcd.io/docs/installation/#install-the-flux-cli</a></li>
 <li><a href="https://kubectl.docs.kubernetes.io/references/kustomize/">https://kubectl.docs.kubernetes.io/references/kustomize/</a></li>
 <li><a href="https://github.com/mikefarah/yq">https://github.com/mikefarah/yq</a></li>
+<li><a href="https://quarkus.io/get-started/">https://quarkus.io/get-started/</a></li>
 </ul>
 </div>
 </div>
@@ -7634,7 +7635,7 @@ hubble version        <span class="c1"># 0.12.3</span>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Docker-based-Kubernetes-with-Kind">Docker based Kubernetes with Kind<a class="anchor-link" href="#Docker-based-Kubernetes-with-Kind">¶</a></h2><p>Using a local docker registry is a bit tricky. Following these instructions
+<h2 id="Docker-based-Kubernetes-with-Kind">Docker based Kubernetes with Kind<a class="anchor-link" href="#Docker-based-Kubernetes-with-Kind">¶</a></h2><p>Using a local docker registry is a bit tricky. The following is based on instructions
 for Kind: <a href="https://kind.sigs.k8s.io/docs/user/local-registry/">https://kind.sigs.k8s.io/docs/user/local-registry/</a></p>
 </div>
 </div>
@@ -7689,7 +7690,7 @@ the images.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Create-the-Kind-cluster">Create the Kind cluster<a class="anchor-link" href="#Create-the-Kind-cluster">¶</a></h3>
+<h3 id="Create-the-Kind-cluster">Create the Kind cluster<a class="anchor-link" href="#Create-the-Kind-cluster">¶</a></h3><p>(NB remember <code>git clone git@github.com:nostra/neon.git</code>)</p>
 </div>
 </div>
 </div>
@@ -7835,7 +7836,7 @@ cat <span class="s">&lt;&lt;EOF | kubectl apply -f -</span>
 <span class="s">  namespace: kube-public</span>
 <span class="s">data:</span>
 <span class="s">  localRegistryHosting.v1: |</span>
-<span class="s">    host: "localhost:${reg_port}"</span>
+<span class="s">    host: "localhost:5001"</span>
 <span class="s">    help: "https://kind.sigs.k8s.io/docs/user/local-registry/"</span>
 <span class="s">EOF</span>
 </pre></div>
@@ -7882,7 +7883,7 @@ would <strong>use different keys</strong> in a real life scenario.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d00828bc-e88b-4bca-942f-9dc72b8b1866">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2de52bc7-f11b-47f1-ac39-fe0a9743d93c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7894,7 +7895,6 @@ would <strong>use different keys</strong> in a real life scenario.</p>
 <span class="nb">pushd</span> dockerimage/sshd/
 cp ~/.ssh/fluxpres.pub .
 docker build -t neon.local.gd:5001/flux_sshd:v1 .
-which nerdctl &gt; /dev/null <span class="o">&amp;&amp;</span> nerdctl --namespace k8s.io build -t flux_sshd:v1 .
 </pre></div>
 </div>
 </div>
@@ -8034,9 +8034,9 @@ ssh -i ~/.ssh/fluxpres -p <span class="m">31022</span> fluxpres@neon.local.gd <s
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>If you have trouble with the command above, you need:</p>
 <pre><code># Edit ~/.ssh/config
-Host localhost
-User fluxpres
-IdentityFile ~/.ssh/fluxpres
+Host neon.local.gd
+  User fluxpres
+  IdentityFile ~/.ssh/fluxpres
 </code></pre>
 </div>
 </div>
@@ -8249,7 +8249,7 @@ Token can be generated with <code>head -c 12 /dev/urandom | shasum | cut -d ' ' 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
@@ -8317,7 +8317,7 @@ ssh -i ~/.ssh/fluxpres -p <span class="m">31022</span> fluxpres@neon.local.gd <s
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
 git clone ssh://fluxpres@neon.local.gd:31022/home/fluxpres/git/neoncode.git <span class="nv">$HOME</span>/scrap/work/neoncode
 <span class="nb">pushd</span>  <span class="nv">$HOME</span>/scrap/work/neoncode/
-        git branch -m main
+git branch -M main
 <span class="nb">echo</span> <span class="s2">"# Basis for a project"</span> &gt;  README.md
 git add README.md
 git commit -a -m <span class="s2">"Initial commit"</span>
@@ -8351,6 +8351,7 @@ git push
 quarkus create app --dry-run no.scienta:neoncode
 quarkus create app no.scienta:neoncode
 find neoncode -maxdepth <span class="m">1</span> -exec mv <span class="o">{}</span> . <span class="se">\;</span>
+<span class="c1"># (Ignore error above)</span>
 rmdir neoncode
 quarkus ext add io.quarkus:quarkus-kubernetes
 quarkus ext add io.quarkus:quarkus-micrometer-registry-prometheus
@@ -8509,11 +8510,22 @@ curl -s http://localhost:8080/hello
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
 <span class="nb">cd</span> ~/scrap/work/neonflux/
 <span class="nb">export</span> <span class="nv">LINE</span><span class="o">=</span><span class="k">$(</span> cat <span class="nv">$HOME</span>/.ssh/fluxpres <span class="p">|</span> base64 <span class="k">)</span>
-gsed -i <span class="s1">'s|\(id_rsa:\).*|\1 '</span><span class="nv">$LINE</span><span class="s1">'|g'</span> flux/tenant/neon-builder/git-credentials.yaml
+gsed -i <span class="s1">'s|\(id_rsa:\).*|\1 '</span><span class="s2">"</span><span class="nv">$LINE</span><span class="s2">"</span><span class="s1">'|g'</span> flux/tenant/neon-builder/git-credentials.yaml
 git commit flux -m <span class="s2">"Update credentials"</span>
 git push
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3a3a9efb-bbc0-4064-a561-2917beede240">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>NB</strong> : On Linux, use "base64 -w 0" when encoding</p>
 </div>
 </div>
 </div>
@@ -8826,9 +8838,9 @@ kustomize build . -o ~/scrap/work/neonflux/base/neoncode
 <span class="nb">cd</span> ~/scrap/work/neonflux/base/neoncode
 kustomize create --autodetect .
 <span class="nb">cd</span> ..
-git add neoncode
-git commit neoncode -m <span class="s2">"Add / update neon"</span>
-git push
+<span class="c1">#git add neoncode</span>
+<span class="c1">#git commit neoncode -m "Add / update neon"</span>
+<span class="c1">#git push</span>
 </pre></div>
 </div>
 </div>
