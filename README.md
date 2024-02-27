@@ -27,4 +27,3 @@ Render into build directory upon change:
 source ./venv/bin/activate
 fswatch -0 *.ipynb | xargs -0 -I {} make
 ```
-
