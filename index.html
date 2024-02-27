@@ -8486,7 +8486,33 @@ curl -s http://localhost:8080/hello
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
+</aside>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1d4c54bc-e08f-47bd-9c6b-cd99035ca739">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Release-Quarkus-image-locally">Release Quarkus image locally<a class="anchor-link" href="#Release-Quarkus-image-locally">¶</a></h3><p>For some reaons I had trouble getting a Tekton release process running, so I have to do that manually. Add:</p>
+<pre><code>&lt;scm&gt;
+    &lt;connection&gt;scm:git:ssh://fluxpres@neon.local.gd:31022/home/fluxpres/git/neoncode.git&lt;/connection&gt;
+    &lt;developerConnection&gt;scm:git:ssh://fluxpres@neon.local.gd:31022/home/fluxpres/git/neoncode.git&lt;/developerConnection&gt;
+    &lt;tag&gt;HEAD&lt;/tag&gt;
+&lt;/scm&gt;
+</code></pre>
+<p>Then:</p>
+<pre><code>mvn --batch-mode -Darguments="-Dmaven.test.skip=true" -DpreparationGoals="clean install" release:prepare
+mvn -Darguments="-Dmaven.test.skip=true \
+-Dquarkus.container-image.build=true \
+-Dquarkus.container-image.insecure=true \
+-Dquarkus.container-image.push=true \
+-Dquarkus.container-image.registry=neon.local.gd:5001" -Dgoals=package \
+release:perform
+</code></pre>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bc55e587b62f0778">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
