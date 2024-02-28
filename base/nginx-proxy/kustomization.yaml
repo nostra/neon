@@ -9,5 +9,6 @@ configMapGenerator:
     files:
       - nginx-proxy.conf=nginx-proxy.conf
       - index.html=index.html
+      - _htpasswd=_htpasswd
 #    options:
 #      disableNameSuffixHash: true
