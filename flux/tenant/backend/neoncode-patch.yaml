@@ -16,9 +16,9 @@ spec:
           #image: kind-registry:5001/scienta/neon:1.0.0-SNAPSHOT
           #image: neon.local.gd:5001/scienta/neon:1.0.0-SNAPSHOT
           ##For Kind, it turns out that this is the image reference that works
-          image: localhost:5001/scienta/neon:1.0.0-SNAPSHOT
-      imagePullSecrets:
-        - name: "image-pull-secret"
+          image: localhost:5001/scienta/neon:1.0.0-SNAPSHOT # {"$imagepolicy": "backend:neoncode"}
+          #      imagePullSecrets:
+          #        - name: "image-pull-secret"
       terminationGracePeriodSeconds: 2
 #          volumeMounts:
 #            - mountPath: "/etc/ssl/certs/registry-root.pem"

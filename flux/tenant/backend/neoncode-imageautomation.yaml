@@ -1,0 +1,22 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: neoncode
+spec:
+  image: kind-registry:5000/scienta/neon
+  interval: 0m15s
+  insecure: true
+  provider: generic
+#  secretRef:
+#    name: acr-auth
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: neoncode
+spec:
+  imageRepositoryRef:
+    name: neoncode
+  policy:
+    semver:
+      range: '>=1.0.0'

@@ -4,5 +4,7 @@ namespace: backend
 resources:
   - ../../../base/neoncode
 # - nginx.yaml
+  - neoncode-imageautomation.yaml
+  - image-update-automation.yaml
 patches:
   - path: neoncode-patch.yaml
