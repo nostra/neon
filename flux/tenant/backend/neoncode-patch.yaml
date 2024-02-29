@@ -15,7 +15,9 @@ spec:
           #image: kind-registry:5000/scienta/neon:1.0.0-SNAPSHOT
           #image: kind-registry:5001/scienta/neon:1.0.0-SNAPSHOT
           #image: neon.local.gd:5001/scienta/neon:1.0.0-SNAPSHOT
-          ##For Kind, it turns out that this is the image reference that works
+          #For Kind, it turns out that this is the image reference that works
+          # image: localhost:5001/scienta/neon:1.0.3
+          # Note that the host part gets rewritten by kustomize:
           image: localhost:5001/scienta/neon:1.0.0-SNAPSHOT # {"$imagepolicy": "backend:neoncode"}
           #      imagePullSecrets:
           #        - name: "image-pull-secret"

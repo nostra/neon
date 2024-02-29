@@ -8,3 +8,6 @@ resources:
   - image-update-automation.yaml
 patches:
   - path: neoncode-patch.yaml
+images:
+  - name: kind-registry:5000/scienta/neon
+    newName: localhost:5001/scienta/neon
