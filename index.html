@@ -7536,7 +7536,7 @@ main {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Note: On Mac you will need gnu-sed. To avoid forgetting this, the scripts here use <code>gsed</code>, and on Linux you need to replace this with <code>sed</code> - or create an alias.</p>
-<p>Also note the <code>yq</code> overlay of <code>jq</code></p>
+<p>On Linux, yq might be <code>go-yq</code>.</p>
 </div>
 </div>
 </div>
@@ -8154,8 +8154,8 @@ flux create secret git flux-system <span class="se">\</span>
                        --private-key-file<span class="o">=</span><span class="nv">$HOME</span>/.ssh/fluxpres --namespace<span class="o">=</span>flux-system <span class="se">\</span>
                         --export &gt; flux-system-secret.yaml
 <span class="nb">echo</span> <span class="s2">"Correct sshd hostname to what it is inside cluster"</span>
-<span class="nb">export</span> <span class="nv">POD</span><span class="o">=</span><span class="k">$(</span> kubectl get pods -n management -l <span class="nv">app</span><span class="o">=</span>sshd -o yaml  <span class="p">|</span> yq <span class="s1">'.items[].metadata.name'</span> <span class="k">)</span>
-<span class="nb">export</span> <span class="nv">LINE</span><span class="o">=</span><span class="k">$(</span> kubectl <span class="nb">exec</span> -t -n management <span class="nv">$POD</span> -- ssh-keyscan sshd.management <span class="p">|</span> grep sha2 <span class="p">|</span>  gsed <span class="s1">'/./,$!d'</span> <span class="k">)</span>
+<span class="nb">export</span> <span class="nv">POD</span><span class="o">=</span><span class="k">$(</span> kubectl get pods -n management -l <span class="nv">app</span><span class="o">=</span>sshd -o yaml <span class="p">|</span> yq <span class="s1">'.items[].metadata.name'</span> <span class="k">)</span>
+<span class="nb">export</span> <span class="nv">LINE</span><span class="o">=</span><span class="k">$(</span> kubectl <span class="nb">exec</span> -t -n management <span class="nv">$POD</span> -- ssh-keyscan sshd.management <span class="p">|</span> grep sha2 <span class="p">|</span> gsed <span class="s1">'/./,$!d'</span> <span class="k">)</span>
 gsed -i <span class="s1">'s|\(known_hosts:\).*|\1 '</span><span class="s2">"</span><span class="nv">$LINE</span><span class="s2">"</span><span class="s1">'|g'</span> flux-system-secret.yaml
 mv flux-system-secret.yaml flux/system/flux-system-secret.yaml
 git add .
@@ -8486,23 +8486,24 @@ curl -s http://localhost:8080/hello
 </div>
 </div>
 </div>
-</aside>
+</aside></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1d4c54bc-e08f-47bd-9c6b-cd99035ca739">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Release-Quarkus-image-locally">Release Quarkus image locally<a class="anchor-link" href="#Release-Quarkus-image-locally">¶</a></h3><p>For some reaons I had trouble getting a Tekton release process running, so I have to do that manually. Add:</p>
+<h3 id="Release-Quarkus-image-locally">Release Quarkus image locally<a class="anchor-link" href="#Release-Quarkus-image-locally">¶</a></h3><p>For some reaons I had trouble getting a Tekton release process running, so I have to do that manually. Add the following to the pom:</p>
 <pre><code>&lt;scm&gt;
     &lt;connection&gt;scm:git:ssh://fluxpres@neon.local.gd:31022/home/fluxpres/git/neoncode.git&lt;/connection&gt;
     &lt;developerConnection&gt;scm:git:ssh://fluxpres@neon.local.gd:31022/home/fluxpres/git/neoncode.git&lt;/developerConnection&gt;
     &lt;tag&gt;HEAD&lt;/tag&gt;
 &lt;/scm&gt;
 </code></pre>
-<p>Then:</p>
-<pre><code>mvn --batch-mode -Darguments="-Dmaven.test.skip=true" -DpreparationGoals="clean install" release:prepare
-mvn -Darguments="-Dmaven.test.skip=true \
+<p>Commit and push, then:</p>
+<pre><code>./mvnw --batch-mode -Darguments="-Dmaven.test.skip=true" -DpreparationGoals="clean install" release:prepare
+./mvnw -Darguments="-Dmaven.test.skip=true \
+-Dmaven.javadoc.skip=true \
 -Dquarkus.container-image.build=true \
 -Dquarkus.container-image.insecure=true \
 -Dquarkus.container-image.push=true \
@@ -8640,8 +8641,8 @@ types of build pipelines in the same project.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Build-with-tekton...-webhook">Build with tekton... webhook<a class="anchor-link" href="#Build-with-tekton...-webhook">¶</a></h3><p>Creating a <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">git webhook</a>.</p>
-<p>Copy the script to the server side hook directory:</p>
+<h3 id="Build-with-tekton...-webhook">Build with tekton... webhook<a class="anchor-link" href="#Build-with-tekton...-webhook">¶</a></h3><p>Create a <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">git webhook</a>.
+Copy the script to the server side hook directory:</p>
 </div>
 </div>
 </div>
@@ -8820,6 +8821,7 @@ docker pull localhost:5001/scienta/neon:1.0.0-SNAPSHOT
 <li>The maturity level is not impressive</li>
 <li>Github actions is easier to grasp, and you can still build inside the cluster</li>
 <li>In any case: You want to consider a separate build cluster for security reasons</li>
+<li>Could be relevant in an air-gapped cluster</li>
 </ul>
 </div>
 </div>
@@ -8857,7 +8859,7 @@ docker pull localhost:5001/scienta/neon:1.0.0-SNAPSHOT
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
 <span class="nb">cd</span> ~/scrap/work/neoncode
-mvn clean package
+./mvnw clean package
 <span class="nb">cd</span> target/kubernetes
 kustomize create --autodetect .
 mkdir -p ~/scrap/work/neonflux/base/neoncode
