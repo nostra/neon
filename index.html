@@ -7551,7 +7551,7 @@ main {
 brew install fluxcd/tap/flux
 brew install kind
 brew install yq
-brew install kustomize
+# brew install kustomize
 </code></pre>
 <p>Kustomize is not really necessary, as <code>kubectl kustomize</code> is the same as <code>kustomize build</code>.</p>
 </div>
@@ -7581,7 +7581,6 @@ kind --version        <span class="c1"># Should yield at least 0.20.0</span>
 docker ps             <span class="c1"># Should not give any errors</span>
 kubectl version       <span class="c1"># Should at least give 1.29</span>
 flux version --client <span class="c1"># Should at least give 2.2.2</span>
-kustomize version     <span class="c1"># 5.3.0, most are good</span>
 yq --version          <span class="c1"># 4.40.5</span>
 </pre></div>
 </div>
@@ -7615,17 +7614,6 @@ hubble version        <span class="c1"># 0.12.3</span>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="You-might-need-to-adjust-the-github-config">You might need to adjust the github config<a class="anchor-link" href="#You-might-need-to-adjust-the-github-config">¶</a></h3><div class="highlight"><pre><span></span>git config --global push.default
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bcb0dd55-3b5b-469d-91c8-80762e8599e8">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>TODO: Consider add command line tools</p>
 </div>
 </div>
 </div>
@@ -8864,7 +8852,7 @@ docker pull localhost:5001/scienta/neon:1.0.0-SNAPSHOT
 kustomize create --autodetect .
 mkdir -p ~/scrap/work/neonflux/base/neoncode
 rm -f ~/scrap/work/neonflux/base/neoncode/*.yaml
-kustomize build . -o ~/scrap/work/neonflux/base/neoncode
+kubectl kustomize . -o ~/scrap/work/neonflux/base/neoncode
 <span class="nb">cd</span> ~/scrap/work/neonflux/base/neoncode
 kustomize create --autodetect .
 <span class="nb">cd</span> ..
