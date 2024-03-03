@@ -3,6 +3,7 @@ layout: true
 class: center, middle, inverse
 ---
 # NeonPandora
+Deprecated, now using Jupyter
 
 .footnote[xx.02.2024 Erlend Nossum]
 ???
