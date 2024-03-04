@@ -7518,10 +7518,12 @@ main {
 <h2 id="Tooling---this-gets-used-today">Tooling - this gets used today<a class="anchor-link" href="#Tooling---this-gets-used-today">¶</a></h2><p>Install:</p>
 <ul>
 <li><a href="https://docs.docker.com/install/">https://docs.docker.com/install/</a></li>
-<li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">https://kubernetes.io/docs/tasks/tools/install-kubectl/</a></li>
+<li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">https://kubernetes.io/docs/tasks/tools/install-kubectl/</a><ul>
+<li>(Contained in kubectl: <a href="https://kubectl.docs.kubernetes.io/references/kustomize/">https://kubectl.docs.kubernetes.io/references/kustomize/</a>)</li>
+</ul>
+</li>
 <li><a href="https://github.com/kubernetes-sigs/kind">https://github.com/kubernetes-sigs/kind</a></li>
 <li><a href="https://fluxcd.io/docs/installation/#install-the-flux-cli">https://fluxcd.io/docs/installation/#install-the-flux-cli</a></li>
-<li><a href="https://kubectl.docs.kubernetes.io/references/kustomize/">https://kubectl.docs.kubernetes.io/references/kustomize/</a></li>
 <li><a href="https://github.com/mikefarah/yq">https://github.com/mikefarah/yq</a></li>
 <li><a href="https://quarkus.io/get-started/">https://quarkus.io/get-started/</a></li>
 </ul>
@@ -7550,8 +7552,10 @@ main {
 <h3 id="Brew-installation">Brew installation<a class="anchor-link" href="#Brew-installation">¶</a></h3><pre><code>brew install kubectl
 brew install fluxcd/tap/flux
 brew install kind
+brew install gsed
 brew install yq
 # brew install kustomize
+sdk install quarkus
 </code></pre>
 <p>Kustomize is not really necessary, as <code>kubectl kustomize</code> is the same as <code>kustomize build</code>.</p>
 </div>
@@ -7582,6 +7586,7 @@ docker ps             <span class="c1"># Should not give any errors</span>
 kubectl version       <span class="c1"># Should at least give 1.29</span>
 flux version --client <span class="c1"># Should at least give 2.2.2</span>
 yq --version          <span class="c1"># 4.40.5</span>
+quarkus --version     <span class="c1"># Expect all 3.x.x to be OK</span>
 </pre></div>
 </div>
 </div>
