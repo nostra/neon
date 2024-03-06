@@ -8087,7 +8087,6 @@ cp .gitignore <span class="nv">$HOME</span>/scrap/work/neonflux/.gitignore
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>%%bash
-
 <span class="nb">pushd</span> <span class="nv">$HOME</span>/scrap/work/neonflux
 
 flux install <span class="se">\</span>
@@ -8464,6 +8463,21 @@ curl -s http://localhost:8080/hello
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bf073ffa-d7b1-443e-9eef-72906b8913a4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Next:</p>
+<ul>
+<li>Activate it in the cluster</li>
+<li>Automatic image-update</li>
+</ul>
+</div>
+</div>
+</div>
 </div><aside class="notes">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b6f95ee7a70c36d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -8479,34 +8493,7 @@ curl -s http://localhost:8080/hello
 </div>
 </div>
 </div>
-</aside></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1d4c54bc-e08f-47bd-9c6b-cd99035ca739">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Release-Quarkus-image-locally">Release Quarkus image locally<a class="anchor-link" href="#Release-Quarkus-image-locally">¶</a></h3><p>For some reaons I had trouble getting a Tekton release process running, so I have to do that manually. Add the following to the pom:</p>
-<pre><code>&lt;scm&gt;
-    &lt;connection&gt;scm:git:ssh://fluxpres@neon.local.gd:31022/home/fluxpres/git/neoncode.git&lt;/connection&gt;
-    &lt;developerConnection&gt;scm:git:ssh://fluxpres@neon.local.gd:31022/home/fluxpres/git/neoncode.git&lt;/developerConnection&gt;
-    &lt;tag&gt;HEAD&lt;/tag&gt;
-&lt;/scm&gt;
-</code></pre>
-<p>Commit and push, then:</p>
-<pre><code>./mvnw --batch-mode -Darguments="-Dmaven.test.skip=true" -DpreparationGoals="clean install" release:prepare
-./mvnw -Darguments="-Dmaven.test.skip=true \
--Dmaven.javadoc.skip=true \
--Dquarkus.container-image.build=true \
--Dquarkus.container-image.insecure=true \
--Dquarkus.container-image.push=true \
--Dquarkus.container-image.registry=neon.local.gd:5001" -Dgoals=package \
-release:perform
-</code></pre>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
+</aside></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bc55e587b62f0778">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8859,6 +8846,7 @@ mkdir -p ~/scrap/work/neonflux/base/neoncode
 rm -f ~/scrap/work/neonflux/base/neoncode/*.yaml
 kubectl kustomize . -o ~/scrap/work/neonflux/base/neoncode
 <span class="nb">cd</span> ~/scrap/work/neonflux/base/neoncode
+git checkout -- prometheus-k8s-role.yaml prometheus-roleBinding.yaml
 kustomize create --autodetect .
 <span class="nb">cd</span> ..
 git add neoncode
@@ -8869,7 +8857,7 @@ git push
 </div>
 </div>
 </div>
-</div>
+</div><aside class="notes">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=32b7bdb1-12e1-4a06-9df1-bfd46b1243e1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8880,7 +8868,8 @@ git push
 </div>
 </div>
 </div>
-</div></section><section>
+</div>
+</aside></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bc56ceee8fa2affb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8939,7 +8928,34 @@ kubectl create -f -
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
+</aside></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1d4c54bc-e08f-47bd-9c6b-cd99035ca739">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Release-Quarkus-image-locally">Release Quarkus image locally<a class="anchor-link" href="#Release-Quarkus-image-locally">¶</a></h3><p>For some reaons I had trouble getting a Tekton release process running, so I have to do that manually. Add the following to the pom:</p>
+<pre><code>&lt;scm&gt;
+    &lt;connection&gt;scm:git:ssh://fluxpres@neon.local.gd:31022/home/fluxpres/git/neoncode.git&lt;/connection&gt;
+    &lt;developerConnection&gt;scm:git:ssh://fluxpres@neon.local.gd:31022/home/fluxpres/git/neoncode.git&lt;/developerConnection&gt;
+    &lt;tag&gt;HEAD&lt;/tag&gt;
+&lt;/scm&gt;
+</code></pre>
+<p>Commit and push, then:</p>
+<pre><code>./mvnw --batch-mode -Darguments="-Dmaven.test.skip=true" -DpreparationGoals="clean install" release:prepare
+./mvnw -Darguments="-Dmaven.test.skip=true \
+-Dmaven.javadoc.skip=true \
+-Dquarkus.container-image.build=true \
+-Dquarkus.container-image.insecure=true \
+-Dquarkus.container-image.push=true \
+-Dquarkus.container-image.registry=neon.local.gd:5001" -Dgoals=package \
+release:perform
+</code></pre>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7a6176b807182e05">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
