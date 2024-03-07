@@ -7466,11 +7466,11 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="NeonPandora">NeonPandora<a class="anchor-link" href="#NeonPandora">¶</a></h1><p>Goal: To start an empty Kubernetes cluster on your local laptop and:</p>
+<h1 id="NeonPandora">NeonPandora<a class="anchor-link" href="#NeonPandora">¶</a></h1><p>Goal: Create a representative Kubernetes cluster with:</p>
 <ul>
-<li>establish a basis setup</li>
-<li>set up internal docker repository</li>
-<li>ssh server to use as internal git repository</li>
+<li>a setup which a dev team could use</li>
+<li>set up (internal) docker repository</li>
+<li>(internal) git repository</li>
 <li>create a Quarkus-based application</li>
 <li>build the application in the cluster at check-in</li>
 <li>continuous deployment</li>
@@ -7488,7 +7488,7 @@ main {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="About-these-slides">About these slides<a class="anchor-link" href="#About-these-slides">¶</a></h2><p>These slides are written with <a href="https://jupyter.org/">Jupyter Notebook</a> for ease of integrating with bash command line.</p>
-<p>When looking at the slides the <code>%%bash</code>-sections might be cut in the view. However, if you copy the contents they work fine.</p>
+<p>When looking at the slides the <code>%%bash</code>-sections might be truncated. However, if you copy the contents it will work fine.</p>
 </div>
 </div>
 </div>
@@ -7622,7 +7622,24 @@ hubble version        <span class="c1"># 0.12.3</span>
 </div>
 </div>
 </div>
-</div></div></section></section><section><section>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bcb0dd55-3b5b-469d-91c8-80762e8599e8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Making-life-easier">Making life easier<a class="anchor-link" href="#Making-life-easier">¶</a></h2><p>Enable code completion for at least kubectl and flux:</p>
+<pre><code>alias kc="kubectl"
+source &lt;( kubectl completion zsh)  # setup autocomplete in zsh
+source &lt;( kubectl completion zsh | sed 's|_kubectl|_kc|g' )
+source &lt;( kubectl flux zsh)
+</code></pre>
+<p>You add this to your <code>.zshrc</code> file.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2ba43023-1e87-4f75-a1da-ad2455d85835">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8962,7 +8979,7 @@ release:perform
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Metrics">Metrics<a class="anchor-link" href="#Metrics">¶</a></h1><p>Prometheus is configured using</p>
+<h1 id="Metrics-/-alerts">Metrics / alerts<a class="anchor-link" href="#Metrics-/-alerts">¶</a></h1><p>Prometheus is configured using</p>
 <ul>
 <li><a href="https://prometheus-operator.dev/">Prometheus Operator</a></li>
 <li><a href="https://github.com/prometheus-operator/prometheus-operator">https://github.com/prometheus-operator/prometheus-operator</a></li>
