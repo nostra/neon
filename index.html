@@ -7554,10 +7554,10 @@ brew install fluxcd/tap/flux
 brew install kind
 brew install gsed
 brew install yq
-# brew install kustomize
+brew install kustomize
 sdk install quarkus
 </code></pre>
-<p>Kustomize is not really necessary, as <code>kubectl kustomize</code> is the same as <code>kustomize build</code>.</p>
+<p><code>kubectl kustomize</code> is the same as <code>kustomize build</code>. However, we are at one point going to do <code>kustomize create --autodetect .</code>, which is not supported from <code>kubectl</code> directly.</p>
 </div>
 </div>
 </div>
@@ -7633,7 +7633,7 @@ hubble version        <span class="c1"># 0.12.3</span>
 <pre><code>alias kc="kubectl"
 source &lt;( kubectl completion zsh)  # setup autocomplete in zsh
 source &lt;( kubectl completion zsh | sed 's|_kubectl|_kc|g' )
-source &lt;( kubectl flux zsh)
+source &lt;( flux completion zsh)
 </code></pre>
 <p>You add this to your <code>.zshrc</code> file.</p>
 </div>
@@ -8979,7 +8979,7 @@ release:perform
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Metrics-/-alerts">Metrics / alerts<a class="anchor-link" href="#Metrics-/-alerts">¶</a></h1><p>Prometheus is configured using</p>
+<h1 id="Metrics">Metrics<a class="anchor-link" href="#Metrics">¶</a></h1><p>Prometheus is configured using</p>
 <ul>
 <li><a href="https://prometheus-operator.dev/">Prometheus Operator</a></li>
 <li><a href="https://github.com/prometheus-operator/prometheus-operator">https://github.com/prometheus-operator/prometheus-operator</a></li>
@@ -9019,7 +9019,44 @@ screen -d -m -S grafana kubectl port-forward -n monitoring svc/grafana 3000
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
+</aside></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=272702c5-6df0-46aa-b63b-dfea37a3fe53">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Alerts">Alerts<a class="anchor-link" href="#Alerts">¶</a></h2><p>You find alerts at the <a href="http://prometheus.local.gd:31090/alerts">Prometheus endpoint</a>. With default configuration you get more than 100 useful alerts, which you can set up to trigger a message in a slack channel, or some other form for alert.</p>
+<p>Erlends personal project <a href="https://github.com/nostra/mcalert/#mcalert">mcalert</a> creates a notification icon in the system tray which will show the status of your system.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=95fecf49-89d1-469b-9f80-4033fecf2910">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Future-direction">Future direction<a class="anchor-link" href="#Future-direction">¶</a></h2><p>Which things do you need in a real development team? You want:</p>
+<ul>
+<li>something which can scan your images for vulnerabilities, for example
+(Kubeclarity)[<a href="https://github.com/openclarity/kubeclarity/">https://github.com/openclarity/kubeclarity/</a>]</li>
+<li>to make your secrets more secret<ul>
+<li>as this is a local example, all secrets are pushed unecrypted into git. That is a no-no, of course</li>
+<li>repository secrets might be just created as part of the boot strap process and not stored in git</li>
+<li>general secrets should be stored in an external vault</li>
+</ul>
+</li>
+<li>You want dashboards for your application health</li>
+<li>For security, you want to host your own docker proxy and maven repo (or in other ways limit what you can fetch online</li>
+<li>A service mesh in order to control traffic to your cluster better</li>
+</ul>
+<p>There are undoubtedly many more things to consider too, depending on your plans, and scale.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=33936b5d-240e-4950-93f2-045d4a05ce48">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
